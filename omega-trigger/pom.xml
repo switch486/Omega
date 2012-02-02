@@ -14,6 +14,22 @@
   <name>omega-trigger</name>
   <url>http://maven.apache.org</url>
 
+  <dependencies>
+  	<dependency>
+  		<groupId>pl.omega</groupId>
+  		<artifactId>omega-common</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>pl.omega</groupId>
+  		<artifactId>omega-logic</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
+  </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
