@@ -1,0 +1,18 @@
+What is this project about?
+
+TODO
+
+How to install a developing environment for the project?
+
+1. Maven is used to manage and build the project and all subprojects. 
+   Install maven if you haven't already.
+2. Fetch an eclipse with a maven plugin. It will make the
+   development easier. SpringSource Tool Suite is fine.
+3. Clone git repository.
+4. Perform 'mvn compile'.
+5. Import the projects to eclipse.
+6. Profit.
+
+Before you commit.
+
+1. Run 'maven clean' so the targed directories are deleted.
