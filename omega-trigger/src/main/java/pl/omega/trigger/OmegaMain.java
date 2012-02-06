@@ -1,13 +1,11 @@
 package pl.omega.trigger;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import pl.omega.common.util.LoggerFactory;
-import pl.omega.logic.ci.LogicFacade;
-import pl.omega.logic.ci.impl.LogicFacadeImpl;
+import pl.omega.trigger.ci.Trigger;
 
 /**
  * Main class for starting the application.
@@ -15,23 +13,15 @@ import pl.omega.logic.ci.impl.LogicFacadeImpl;
  * @author Marek Puchalski
  */
 public class OmegaMain {
-	
-	private static final Logger log = LoggerFactory.create();
 
-	private LogicFacade logicFacade;
+	private static final Logger log = LoggerFactory.create();
 
 	public static void main(String[] args) {
 		log.info("Starting application...");
-		ApplicationContext context = 
+		ApplicationContext context =
 	    	  new ClassPathXmlApplicationContext(new String[] {"omega-trigger-spring.xml"});
-		System.out.println(context.getBean(LogicFacadeImpl.class));
+		Trigger trigger = context.getBean(Trigger.class);
+		trigger.run();
 	}
 
-	// spring setters
-	
-	@Autowired
-	public void setLogicFacade(LogicFacade logicFacade) {
-		this.logicFacade = logicFacade;
-	}
-	
 }

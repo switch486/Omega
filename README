@@ -15,4 +15,4 @@ How to install a developing environment for the project?
 
 Before you commit.
 
-1. Run 'maven clean' so the targed directories are deleted.
+1. Run 'maven clean' so the target directories are deleted.
