@@ -11,7 +11,7 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 
 	public void updateResources() {
 		// TODO Auto-generated method stub
-		// @Adam, this is your starting point. :)
+		// TODO Adam Puchalski - Mar 21, 2012 - this is your starting point. :)
 	}
-
+	
 }
