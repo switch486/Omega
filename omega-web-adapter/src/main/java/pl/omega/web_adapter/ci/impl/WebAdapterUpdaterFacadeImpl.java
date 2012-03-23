@@ -13,5 +13,15 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		// TODO Auto-generated method stub
 		// TODO Adam Puchalski - Mar 21, 2012 - this is your starting point. :)
 	}
+
+	public void updateFlights() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updateBuildings() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

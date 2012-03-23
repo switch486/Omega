@@ -8,9 +8,14 @@ package pl.omega.web_adapter.ci;
  * @author Marek Puchalski
  */
 public interface WebAdapterUpdaterFacade {
+	// TODO Adam Puchalski - Mar 23, 2012 - how too solve problem of refreshing resources having more than one planet
 
 	/**
 	 * This operation updates the resources amount for every planet.
 	 */
 	void updateResources();
+	
+	void updateFlights();
+	
+	void updateBuildings();
 }
