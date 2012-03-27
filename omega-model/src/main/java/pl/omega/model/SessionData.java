@@ -5,6 +5,7 @@ public class SessionData {
 	private final String logInName;
 	private final String password;
 	private final String universum;
+	private final String domain;
 	
 	private String sessionID;
 	
@@ -12,11 +13,17 @@ public class SessionData {
 	 * @param logInName the login
 	 * @param password the password
 	 * @param universum the universum
+	 * @param domain the domain
 	 */
-	public SessionData(String logInName, String password, String universum) {
+	public SessionData(String logInName, String password, String universum, String domain) {
 		this.logInName = logInName;
 		this.universum = universum;
 		this.password = password;
+		this.domain = domain;
+	}
+
+	public String getDomain() {
+		return domain;
 	}
 
 	public String getSessionID() {

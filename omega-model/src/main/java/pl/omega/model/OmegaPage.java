@@ -46,7 +46,7 @@ public class OmegaPage extends Enumeration {
 	// TODO Adam Puchalski - Mar 23, 2012 - there are more pages... this will expand.
 
 	/**
-	 * The current galaxy Page and neighbourhood
+	 * The current galaxy Page and neighborhood
 	 */
 	public static final String GALAXY = "galaxy";
 

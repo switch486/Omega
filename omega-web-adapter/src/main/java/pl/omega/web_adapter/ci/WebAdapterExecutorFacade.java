@@ -29,6 +29,6 @@ public interface WebAdapterExecutorFacade {
 	 * 
 	 */
 	// TODO Adam Puchalski - Mar 23, 2012 - description to be provided.
-	void executeCommand(OmegaPage pageToView, Properties properties);
+	void executeCommand(SessionData sessionData, OmegaPage pageToView, Properties properties);
 	
 }
