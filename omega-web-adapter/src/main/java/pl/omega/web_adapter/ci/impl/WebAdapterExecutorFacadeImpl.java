@@ -18,21 +18,27 @@ import pl.omega.web_adapter.ci.commands.impl.CommandExecutor;
 public class WebAdapterExecutorFacadeImpl implements WebAdapterExecutorFacade {
 
 	public void logIn(SessionData sessionData) {
-		Command c = CommandBuilder.getInstance().getLogInCommand();
+		Command c = new CommandBuilder().getLogInCommand();
 		c.proposeArguments(sessionData);
-		ExecutedCommand result = CommandExecutor.getInstance().executeCommand (c);
+		ExecutedCommand result = new CommandExecutor().executeCommand (c);
+		failWhenExceptionsAppeared (result);
 		updateSessionData(sessionData, result);
 	}
 
-	public void executeCommand(SessionData sessionData, OmegaPage pageToView, Properties properties) {
-		Command c = CommandBuilder.getInstance().getStandardCommand();
+	public ExecutedCommand executeCommand(SessionData sessionData, OmegaPage pageToView, Properties properties) {
+		Command c = new CommandBuilder().getStandardCommand();
 		c.proposeArguments(sessionData);
-		ExecutedCommand result = CommandExecutor.getInstance().executeCommand (c);
+		return new CommandExecutor().executeCommand (c);
 	}
 	
 	private void updateSessionData(SessionData sessionData,
 			ExecutedCommand result) {
 		sessionData.setSessionID(result.getSessionIDFromLogInCommand());
+	}
+	
+	private void failWhenExceptionsAppeared(ExecutedCommand result) {
+		if (result.containsExceptions()) 
+			throw new RuntimeException(result.getExceptions());
 	}
 
 }

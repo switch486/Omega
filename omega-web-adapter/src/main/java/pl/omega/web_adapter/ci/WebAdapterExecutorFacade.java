@@ -3,6 +3,7 @@ package pl.omega.web_adapter.ci;
 import pl.omega.model.OmegaPage;
 import pl.omega.model.Properties;
 import pl.omega.model.SessionData;
+import pl.omega.web_adapter.ci.commands.ExecutedCommand;
 
 /**
  * This class holds all operations used to execute commands on the 0game web page.
@@ -29,6 +30,6 @@ public interface WebAdapterExecutorFacade {
 	 * 
 	 */
 	// TODO Adam Puchalski - Mar 23, 2012 - description to be provided.
-	void executeCommand(SessionData sessionData, OmegaPage pageToView, Properties properties);
+	ExecutedCommand executeCommand(SessionData sessionData, OmegaPage pageToView, Properties properties);
 	
 }

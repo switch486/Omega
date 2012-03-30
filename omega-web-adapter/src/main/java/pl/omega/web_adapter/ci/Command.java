@@ -17,4 +17,8 @@ public abstract class Command {
 	
 	public abstract void proposeArguments (SessionData sessionData, OmegaPage pageToView, Properties properties);
 	
+	public String getURL() {
+		return commandWithArgs;
+	}
+	
 }
