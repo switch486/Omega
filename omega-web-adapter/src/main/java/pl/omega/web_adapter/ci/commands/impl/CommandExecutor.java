@@ -1,7 +1,6 @@
 package pl.omega.web_adapter.ci.commands.impl;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.IOException;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -16,12 +15,9 @@ public class CommandExecutor {
 		
 		//TODO logging in here would be nice!
 		HttpClient client = new HttpClient();
-		try {
-			client.startSession(new URL("http:\\www.ogame.pl"));
-		} catch (MalformedURLException e) {
-			result.addException(e);
-			return result;
-		}
+		
+		client.getHostConfiguration().setHost("", 80, "http");
+        client.getParams().setCookiePolicy("compatibility");
 
         GetMethod getMethod = new GetMethod(c.getURL());
 
@@ -32,7 +28,12 @@ public class CommandExecutor {
 			return result;
 		} 
         
-        result.setOutputBody(getMethod.getResponseBodyAsString());
+        try {
+			result.setOutputBody(getMethod.getResponseBodyAsString());
+		} catch (IOException e) {
+			result.addException(e);
+			return result;
+		}
         result.setCookies(client.getState().getCookies());
 		
 		return result;
