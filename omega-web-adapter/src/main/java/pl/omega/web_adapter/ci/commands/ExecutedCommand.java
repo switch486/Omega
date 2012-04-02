@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.apache.commons.httpclient.Cookie;
 
-import pl.omega.web_adapter.ci.Command;
-import pl.omega.web_adapter.ci.Constants;
+import pl.omega.web_adapter.util.Command;
+import pl.omega.web_adapter.util.Constants;
 
 public class ExecutedCommand {
 

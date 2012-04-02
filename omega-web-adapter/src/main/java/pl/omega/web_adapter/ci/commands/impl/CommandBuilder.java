@@ -1,8 +1,8 @@
 package pl.omega.web_adapter.ci.commands.impl;
 
-import pl.omega.web_adapter.ci.Command;
 import pl.omega.web_adapter.ci.commands.LogInCommand;
 import pl.omega.web_adapter.ci.commands.StandardCommand;
+import pl.omega.web_adapter.util.Command;
 
 public class CommandBuilder {
 

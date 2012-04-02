@@ -4,11 +4,11 @@ package pl.omega.web_adapter.ci.impl;
 import pl.omega.model.OmegaPage;
 import pl.omega.model.Properties;
 import pl.omega.model.SessionData;
-import pl.omega.web_adapter.ci.Command;
 import pl.omega.web_adapter.ci.WebAdapterExecutorFacade;
 import pl.omega.web_adapter.ci.commands.ExecutedCommand;
 import pl.omega.web_adapter.ci.commands.impl.CommandBuilder;
 import pl.omega.web_adapter.ci.commands.impl.CommandExecutor;
+import pl.omega.web_adapter.util.Command;
 
 /**
  * Executor facade implementation.

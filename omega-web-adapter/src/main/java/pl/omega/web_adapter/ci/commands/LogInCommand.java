@@ -5,7 +5,7 @@ import java.text.MessageFormat;
 import pl.omega.model.OmegaPage;
 import pl.omega.model.Properties;
 import pl.omega.model.SessionData;
-import pl.omega.web_adapter.ci.Command;
+import pl.omega.web_adapter.util.Command;
 
 public class LogInCommand extends Command {
 

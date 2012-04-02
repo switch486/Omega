@@ -5,8 +5,8 @@ import java.io.IOException;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 
-import pl.omega.web_adapter.ci.Command;
 import pl.omega.web_adapter.ci.commands.ExecutedCommand;
+import pl.omega.web_adapter.util.Command;
 
 public class CommandExecutor {
 

@@ -1,4 +1,4 @@
-package pl.omega.web_adapter.ci;
+package pl.omega.web_adapter.util;
 
 import pl.omega.model.OmegaPage;
 import pl.omega.model.Properties;
