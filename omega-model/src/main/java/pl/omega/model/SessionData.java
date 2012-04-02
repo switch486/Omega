@@ -1,14 +1,13 @@
 package pl.omega.model;
 
 public class SessionData {
-	
-	private final String logInName;
-	private final String password;
-	private final String universum;
-	private final String domain;
-	
+
+	private String logInName;
+	private String password;
+	private String universum;
+	private String domain;
 	private String sessionID;
-	
+
 	/**
 	 * @param logInName the login
 	 * @param password the password
@@ -20,6 +19,10 @@ public class SessionData {
 		this.universum = universum;
 		this.password = password;
 		this.domain = domain;
+	}
+
+	public SessionData() {
+		// nothing
 	}
 
 	public String getDomain() {
@@ -45,7 +48,5 @@ public class SessionData {
 	public String getUniversum() {
 		return universum;
 	}
-	
-	
 
 }

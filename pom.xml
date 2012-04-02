@@ -16,17 +16,17 @@
 	</properties>
 
 	<build>
-	    <plugins>
-	      <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-compiler-plugin</artifactId>
-		<version>2.3.2</version>
-		<configuration>
-		  <source>1.6</source>
-		  <target>1.6</target>
-		</configuration>
-	      </plugin>
-	    </plugins>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
 	<modules>
@@ -87,6 +87,23 @@
 			<artifactId>guava</artifactId>
 			<version>r05</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springbyexample</groupId>
+			<artifactId>org.springbyexample.threadscope</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.4</version>
+		</dependency>
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>springbyexample.org</id>
+			<name>Spring by Example</name>
+			<url>http://www.springbyexample.org/maven/repo</url>
+		</repository>
+	</repositories>
 </project>
