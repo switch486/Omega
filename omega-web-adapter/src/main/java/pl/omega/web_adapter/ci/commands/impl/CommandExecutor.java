@@ -1,40 +1,21 @@
 package pl.omega.web_adapter.ci.commands.impl;
 
-import java.io.IOException;
-
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.methods.GetMethod;
-
 import pl.omega.web_adapter.ci.commands.ExecutedCommand;
+import pl.omega.web_adapter.data.WebSessionData;
 import pl.omega.web_adapter.util.Command;
 
 public class CommandExecutor {
 
-	public ExecutedCommand executeCommand(Command c) {
+	public ExecutedCommand executeCommand(WebSessionData webSessionData, Command c) {
 		ExecutedCommand result = new ExecutedCommand(c);
 		
 		//TODO logging in here would be nice!
-		HttpClient client = new HttpClient();
-		
-		client.getHostConfiguration().setHost("", 80, "http");
-        client.getParams().setCookiePolicy("compatibility");
 
-        GetMethod getMethod = new GetMethod(c.getURL());
+		webSessionData.getWebDriver().get(c.getURL());
 
-        try {
-			client.executeMethod(getMethod);
-		} catch (Exception e) {
-			result.addException(e);
-			return result;
-		} 
-        
-        try {
-			result.setOutputBody(getMethod.getResponseBodyAsString());
-		} catch (IOException e) {
-			result.addException(e);
-			return result;
-		}
-        result.setCookies(client.getState().getCookies());
+        result.setOutputBody(webSessionData.getWebDriver().getPageSource());
+        // TODO Adam Puchalski - Apr 4, 2012 - because the Session Data is available here, maybe we can update it here too.
+        // TODO Adam Puchalski - Apr 4, 2012 - seems like an notmal execution statement can also browse existing cookies, so the login action does not to be triggered everytime
 		
 		return result;
 	}

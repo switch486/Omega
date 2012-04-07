@@ -1,12 +1,12 @@
 package pl.omega.model;
 
-public class SessionData {
 
+public class SessionData {
+	
 	private String logInName;
 	private String password;
 	private String universum;
 	private String domain;
-	private String sessionID;
 
 	/**
 	 * @param logInName the login
@@ -22,19 +22,11 @@ public class SessionData {
 	}
 
 	public SessionData() {
-		// nothing
+		// NOP
 	}
 
 	public String getDomain() {
 		return domain;
-	}
-
-	public String getSessionID() {
-		return sessionID;
-	}
-
-	public void setSessionID(String sessionID) {
-		this.sessionID = sessionID;
 	}
 
 	public String getLogInName() {

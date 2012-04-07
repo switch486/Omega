@@ -2,9 +2,6 @@ package pl.omega.web_adapter.ci.commands;
 
 import java.text.MessageFormat;
 
-import pl.omega.model.OmegaPage;
-import pl.omega.model.Properties;
-import pl.omega.model.SessionData;
 import pl.omega.web_adapter.util.Command;
 
 public class LogInCommand extends Command {
@@ -25,11 +22,11 @@ public class LogInCommand extends Command {
 	}
 
 	@Override
-	public void proposeArguments(SessionData sessionData, OmegaPage pageToView,
-			Properties properties) {
+	public Command proposeArguments() {
 		commandWithArgs = MessageFormat.format(command,
 				sessionData.getUniversum(), sessionData.getDomain(),
 				sessionData.getLogInName(), sessionData.getPassword());
+		return this;
 	}
 
 }

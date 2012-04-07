@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import pl.omega.common.util.LoggerFactory;
 import pl.omega.logic.ci.LogicFacade;
 import pl.omega.logic.ci.LogicRunResultTO;
+import pl.omega.model.SessionData;
 import pl.omega.web_adapter.ci.WebAdapterUpdaterFacade;
 
 public class LogicFacadeImpl implements LogicFacade {
@@ -14,7 +15,8 @@ public class LogicFacadeImpl implements LogicFacade {
 
 	public LogicRunResultTO run() {
 		log.debug("Logics entry point reached.");
-		waUpdaterFacade.updateResources();
+		SessionData sessionData = new SessionData("UczeSie", "calineczka", "uni1", "ogame.pl");
+		waUpdaterFacade.updateResources(sessionData);
 		return new LogicRunResultTO();
 	}
 

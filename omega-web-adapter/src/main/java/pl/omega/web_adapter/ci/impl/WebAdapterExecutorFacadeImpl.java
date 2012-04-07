@@ -1,14 +1,8 @@
 package pl.omega.web_adapter.ci.impl;
 
 
-import pl.omega.model.OmegaPage;
-import pl.omega.model.Properties;
-import pl.omega.model.SessionData;
 import pl.omega.web_adapter.ci.WebAdapterExecutorFacade;
 import pl.omega.web_adapter.ci.commands.ExecutedCommand;
-import pl.omega.web_adapter.ci.commands.impl.CommandBuilder;
-import pl.omega.web_adapter.ci.commands.impl.CommandExecutor;
-import pl.omega.web_adapter.util.Command;
 
 /**
  * Executor facade implementation.
@@ -17,24 +11,18 @@ import pl.omega.web_adapter.util.Command;
  */
 public class WebAdapterExecutorFacadeImpl implements WebAdapterExecutorFacade {
 
-	public void logIn(SessionData sessionData) {
-		Command c = new CommandBuilder().getLogInCommand();
-		c.proposeArguments(sessionData);
-		ExecutedCommand result = new CommandExecutor().executeCommand (c);
-		failWhenExceptionsAppeared (result);
-		updateSessionData(sessionData, result);
-	}
-
-	public ExecutedCommand executeCommand(SessionData sessionData, OmegaPage pageToView, Properties properties) {
-		Command c = new CommandBuilder().getStandardCommand();
-		c.proposeArguments(sessionData);
-		return new CommandExecutor().executeCommand (c);
-	}
-	
-	private void updateSessionData(SessionData sessionData,
-			ExecutedCommand result) {
-		sessionData.setSessionID(result.getSessionIDFromLogInCommand());
-	}
+//	public void logIn(SessionData sessionData) {
+//		Command c = new CommandBuilder().getLogInCommand();
+//		c.storeArguments(sessionData);
+//		ExecutedCommand result = new CommandExecutor().executeCommand (c);
+//		failWhenExceptionsAppeared (result);
+//	}
+//
+//	public ExecutedCommand executeCommand(SessionData sessionData, OmegaPage pageToView, Properties properties) {
+//		Command c = new CommandBuilder().getStandardCommand();
+//		c.storeArguments(sessionData);
+//		return new CommandExecutor().executeCommand (c);
+//	}
 	
 	private void failWhenExceptionsAppeared(ExecutedCommand result) {
 		if (result.containsExceptions()) 
