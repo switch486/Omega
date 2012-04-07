@@ -1,10 +1,9 @@
 package pl.omega.trigger;
 
 import org.apache.log4j.Logger;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import pl.omega.common.util.LoggerFactory;
+import pl.omega.common.util.OmegaRegistry;
 import pl.omega.trigger.ci.Trigger;
 
 /**
@@ -18,9 +17,7 @@ public class OmegaMain {
 
 	public static void main(String[] args) {
 		log.info("Starting application...");
-		ApplicationContext context =
-	    	  new ClassPathXmlApplicationContext(new String[] {"omega-trigger-spring.xml"});
-		Trigger trigger = context.getBean(Trigger.class);
+		Trigger trigger = OmegaRegistry.getBean(Trigger.class);
 		trigger.run();
 	}
 
