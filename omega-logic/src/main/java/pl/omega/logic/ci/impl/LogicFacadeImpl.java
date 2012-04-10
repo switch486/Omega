@@ -16,7 +16,7 @@ public class LogicFacadeImpl implements LogicFacade {
 	public LogicRunResultTO run() {
 		log.debug("Logics entry point reached.");
 		SessionData sessionData = new SessionData("UczeSie", "calineczka", "uni1", "ogame.pl");
-		waUpdaterFacade.updateResources(sessionData);
+		waUpdaterFacade.loadKingdom(sessionData);
 		return new LogicRunResultTO();
 	}
 

@@ -26,7 +26,7 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		this.webSessionData = webSessionData;
 	}
 
-	public void updateResources(SessionData sessionData) {
+	public void loadKingdom(SessionData sessionData) {
 		// TODO Marek Puchalski - Apr 7, 2012 - this should be reworked!
 		if (webSessionData != null && webSessionData.getWebDriver() == null) {
 			webSessionData.setWebDriver(new HtmlUnitDriver());
@@ -35,21 +35,15 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		Command c = new CommandBuilder().getStandardCommand();
 		c.setArguments(sessionData, OmegaPage.OVERVIEW, new Properties());
 		ExecutedCommand result = executeCommand(c, true);
+		// TODO Adam Puchalski - Apr 10, 2012 - parse and prepare Kingdom
 		System.out.println(result.getOutputBody());
 	}
 
 	private ExecutedCommand executeCommand(Command c, boolean reloginIfExecutionFails) {
 		if (reloginIfExecutionFails) {
-			ExecutedCommand executeCommand = null;
 			try {
-				executeCommand = new CommandExecutor().executeCommand (webSessionData, c);
-				if (executeCommand.containsExceptions()){
-					// TODO Adam Puchalski - Apr 4, 2012 - 
-					throw new NoSessionException();
-				}
-				// TODO Adam Puchalski - Apr 7, 2012 - remofe the throws so it can be normally used!
-				throw new NoSessionException();
-			} catch(Throwable e) {
+				return new CommandExecutor().executeCommand (webSessionData, c);
+			} catch(NoSessionException e) {
 				new CommandExecutor().executeCommand(webSessionData, new CommandBuilder().getLogInCommand().storeArguments(c.getSessionData()).proposeArguments());
 			}
 		}
@@ -58,12 +52,14 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 
 	public void updateFlights() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public void updateBuildings() {
 		// TODO Auto-generated method stub
-		
+	}
+
+	public void updatePlanets() {
+		// TODO Auto-generated method stub
 	}
 	
 }

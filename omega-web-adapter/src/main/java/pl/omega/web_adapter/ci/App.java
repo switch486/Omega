@@ -17,7 +17,7 @@ public class App {
 		WebAdapterUpdaterFacade w = OmegaRegistry.getBean(WebAdapterUpdaterFacadeImpl.class);
 
 		SessionData sessionData = new SessionData("UczeSie", "calineczka", "uni1", "ogame.pl");
-		w.updateResources(sessionData);
+		w.loadKingdom(sessionData);
 
 		System.out.println(sessionData);
 	}
