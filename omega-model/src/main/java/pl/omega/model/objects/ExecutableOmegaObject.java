@@ -2,15 +2,17 @@ package pl.omega.model.objects;
 
 import java.util.List;
 
-public class ExecutableOmegaObject {
-	
-	protected String name;
-	protected int startMetalNeeds;
-	protected int startCrystalNeeds;
-	protected int startDeuteriumNeeds;
-	protected int startEnergyNeeds;
-	protected double levelMultiplayer;
+public abstract class ExecutableOmegaObject implements Buildable {
 	
 	protected List<ExecutableOmegaObject> dependendsOn;
+	
+	protected double levelMultiplayer;
+	
+	public String name;
+	protected final int universumSpeed;
+	
+	public ExecutableOmegaObject(int universumSpeed) {
+		this.universumSpeed = universumSpeed;
+	}
 	
 }

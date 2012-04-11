@@ -1,10 +1,18 @@
 package pl.omega.model.objects;
 
-public class Building extends ExecutableOmegaObject {
+public abstract class Building extends ExecutableOmegaObject {
 
-	private int level;
-	private long production;
-	private long energyNeeded;
+	protected int level;
 	
+	public Building(int universumSpeed) {
+		super(universumSpeed);
+	}
+	
+	protected abstract void levelChanged();
+	
+	public void upgradeBuilding () {
+		level ++;
+		levelChanged();
+	}
 	
 }

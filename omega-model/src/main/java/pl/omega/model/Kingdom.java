@@ -3,6 +3,11 @@ package pl.omega.model;
 import java.util.List;
 
 public class Kingdom {
+	
+	/**
+	 * TODO - check is the speed can be lower than one! 
+	 */
+	private int universumSpeed; 
 
 	private List<Planet> planets;
 	
