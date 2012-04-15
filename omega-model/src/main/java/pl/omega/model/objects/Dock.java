@@ -1,12 +1,6 @@
 package pl.omega.model.objects;
 
-public class SolarPowerPlant extends PowerPlant {
-
-
-//	@Override
-//	public void countEnergyProduction() {
-//		producedEnergy = (long) (20.0 * level * Math.pow(1.1, level));
-//	}
+public class Dock extends StationBulding {
 
 	public int getStartCrystalNeeds() {
 		// TODO Auto-generated method stub

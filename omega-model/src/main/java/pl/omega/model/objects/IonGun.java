@@ -1,12 +1,21 @@
 package pl.omega.model.objects;
 
-public class SolarPowerPlant extends PowerPlant {
+public class IonGun extends Gun {
 
+	public int getStructurePoints() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
-//	@Override
-//	public void countEnergyProduction() {
-//		producedEnergy = (long) (20.0 * level * Math.pow(1.1, level));
-//	}
+	public int getShield() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getAttack() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	public int getStartCrystalNeeds() {
 		// TODO Auto-generated method stub

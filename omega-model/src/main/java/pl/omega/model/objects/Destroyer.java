@@ -1,13 +1,6 @@
 package pl.omega.model.objects;
 
-public class SolarSatelit extends CivilShip {
-	
-//	private final int temperatureHigh;
-
-//	@Override
-//	public void countEnergyProduction() {
-//		producedEnergy = (long) ((temperatureHigh + 140.0) / 6.0 * level);
-//	}
+public class Destroyer extends WarShip {
 
 	public int getStartCrystalNeeds() {
 		// TODO Auto-generated method stub
@@ -29,7 +22,22 @@ public class SolarSatelit extends CivilShip {
 		return 0;
 	}
 
+	public int getStructurePoints() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getShield() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	public int getBaseSpeed() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getAttack() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -44,21 +52,4 @@ public class SolarSatelit extends CivilShip {
 		return 0;
 	}
 
-	public int getStructurePoints() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getShield() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getAttack() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	// TODO Adam Puchalski - Apr 10, 2012 - level here means the number of
-	// saletilts......
 }

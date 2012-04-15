@@ -2,10 +2,6 @@ package pl.omega.model.objects;
 
 public class CrystalMine extends Mine {
 
-	public CrystalMine(int universumSpeed) {
-		super(universumSpeed);
-	}
-
 	public int getStartCrystalNeeds() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -26,15 +22,15 @@ public class CrystalMine extends Mine {
 		return 0;
 	}
 
-	@Override
-	public void updateProduction() {
-		production = (long) (20.0 * level * Math.pow(1.1, level));
-		production *= universumSpeed;
-	}
-
-	@Override
-	protected void updateEnergyNeeds() {
-		energyNeeded = (long) Math.ceil(10.0 * level * Math.pow(1.1, level));
-	}
+//	@Override
+//	public void updateProduction() {
+//		production = (long) (20.0 * level * Math.pow(1.1, level));
+//		production *= universumSpeed;
+//	}
+//
+//	@Override
+//	protected void updateEnergyNeeds() {
+//		energyNeeded = (long) Math.ceil(10.0 * level * Math.pow(1.1, level));
+//	}
 
 }
