@@ -1,7 +1,9 @@
 package pl.omega.web_adapter.ci.impl;
 
+import org.htmlcleaner.TagNode;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import pl.omega.model.Kingdom;
 import pl.omega.model.OmegaPage;
 import pl.omega.model.Properties;
 import pl.omega.model.SessionData;
@@ -9,6 +11,7 @@ import pl.omega.web_adapter.ci.WebAdapterUpdaterFacade;
 import pl.omega.web_adapter.ci.commands.ExecutedCommand;
 import pl.omega.web_adapter.ci.commands.impl.CommandBuilder;
 import pl.omega.web_adapter.ci.commands.impl.CommandExecutor;
+import pl.omega.web_adapter.ci.xpaths.XPathKingdomDataLoader;
 import pl.omega.web_adapter.data.WebSessionData;
 import pl.omega.web_adapter.util.Command;
 
@@ -26,7 +29,7 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		this.webSessionData = webSessionData;
 	}
 
-	public void loadKingdom(SessionData sessionData) {
+	public Kingdom loadKingdom(SessionData sessionData) {
 		// TODO Marek Puchalski - Apr 7, 2012 - this should be reworked!
 		if (webSessionData != null && webSessionData.getWebDriver() == null) {
 			webSessionData.setWebDriver(new HtmlUnitDriver());
@@ -35,8 +38,17 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		Command c = new CommandBuilder().getStandardCommand();
 		c.setArguments(sessionData, OmegaPage.OVERVIEW, new Properties());
 		ExecutedCommand result = executeCommand(c, true);
-		// TODO Adam Puchalski - Apr 10, 2012 - parse and prepare Kingdom
-		System.out.println(result.getOutputBody());
+		// TODO Adam Puchalski - Apr 17, 2012 - is the result page needed somewhere else?
+		return initAllData(result.getRoot(), OmegaPage.OVERVIEW);
+	}
+
+	private Kingdom initAllData(TagNode root, String omegaPage) {
+		Kingdom k = new Kingdom();
+		return updateAllData(k, root, omegaPage);
+	}
+
+	private Kingdom updateAllData(Kingdom k, TagNode root, String omegaPage) {
+		return new XPathKingdomDataLoader().updateKingdom(k, root, omegaPage);
 	}
 
 	private ExecutedCommand executeCommand(Command c, boolean reloginIfExecutionFails) {

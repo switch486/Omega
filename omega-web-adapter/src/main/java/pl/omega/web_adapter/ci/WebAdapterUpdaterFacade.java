@@ -1,5 +1,6 @@
 package pl.omega.web_adapter.ci;
 
+import pl.omega.model.Kingdom;
 import pl.omega.model.SessionData;
 
 /**
@@ -17,8 +18,9 @@ public interface WebAdapterUpdaterFacade {
 	 * This shall be executed only once if the application logs in! At this moment noone knows about the planet count, available resources, ...
 	 * 
 	 * @param sessionData
+	 * @return 
 	 */
-	void loadKingdom(SessionData sessionData);
+	Kingdom loadKingdom(SessionData sessionData);
 	
 	void updatePlanets();
 

@@ -26,9 +26,6 @@ public class Kingdom {
 	 * TODO - a statistics engine should be implemented somehow!!!!!1 maybe in the logic?
 	 */
 	
-	/**
-	 * TODO - check is the speed can be lower than one! 
-	 */
 	private int universumSpeed; 
 
 	private List<Planet> planets;
@@ -62,7 +59,16 @@ public class Kingdom {
 	 */
 	
 	private int fleetMax;
+
+	public int getUniversumSpeed() {
+		return universumSpeed;
+	}
+
+	public void setUniversumSpeed(int universumSpeed) {
+		this.universumSpeed = universumSpeed;
+	}
 	
 	
 	// TODO Adam Puchalski - Apr 10, 2012 - how to solve problem with earlier galaxy findings - farms, and so one
+	// TODO Adam Puchalski - Apr 17, 2012 - a generic ToString would be helpfull here
 }

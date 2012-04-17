@@ -3,6 +3,9 @@ package pl.omega.web_adapter.ci.commands;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.htmlcleaner.HtmlCleaner;
+import org.htmlcleaner.TagNode;
+
 import pl.omega.web_adapter.util.Command;
 
 public class ExecutedCommand {
@@ -10,10 +13,14 @@ public class ExecutedCommand {
 	Command inputCommand;
 	String outputBody;
 	List<Exception> exceptionsOccured;
+	TagNode node;
+	
+	private final HtmlCleaner htmlCleaner;
 
 	public ExecutedCommand(Command c) {
 		inputCommand = c;
 		exceptionsOccured = new ArrayList<Exception>();
+		htmlCleaner = new HtmlCleaner();
 	}
 	
 	public boolean containsExceptions () {
@@ -35,8 +42,16 @@ public class ExecutedCommand {
 		return inputCommand;
 	}
 
+	/**
+	 * Will also execute cleanOutputBody()
+	 */
 	public void setOutputBody(String s) {
 		outputBody = s;
+		cleanOutputBody();
+	}
+
+	public void cleanOutputBody() {
+		node = htmlCleaner.clean(outputBody);
 	}
 
 	public void addException(Exception e) {
@@ -45,6 +60,10 @@ public class ExecutedCommand {
 
 	public String getOutputBody () {
 		return outputBody;
+	}
+	
+	public TagNode getRoot() {
+		return node;
 	}
 	
 }
