@@ -39,16 +39,16 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		c.setArguments(sessionData, OmegaPage.OVERVIEW, new Properties());
 		ExecutedCommand result = executeCommand(c, true);
 		// TODO Adam Puchalski - Apr 17, 2012 - is the result page needed somewhere else?
-		return initAllData(result.getRoot(), OmegaPage.OVERVIEW);
+		return initAllData(result.getRoot(),result.getOutputBody(), OmegaPage.OVERVIEW);
 	}
 
-	private Kingdom initAllData(TagNode root, String omegaPage) {
+	private Kingdom initAllData(TagNode root, String pageBody, OmegaPage omegaPage) {
 		Kingdom k = new Kingdom();
-		return updateAllData(k, root, omegaPage);
+		return updateAllData(k, root, pageBody, omegaPage);
 	}
 
-	private Kingdom updateAllData(Kingdom k, TagNode root, String omegaPage) {
-		return new XPathKingdomDataLoader().updateKingdom(k, root, omegaPage);
+	private Kingdom updateAllData(Kingdom k, TagNode root, String pageBody, OmegaPage omegaPage) {
+		return new XPathKingdomDataLoader().updateKingdom(k, root, pageBody, omegaPage);
 	}
 
 	private ExecutedCommand executeCommand(Command c, boolean reloginIfExecutionFails) {

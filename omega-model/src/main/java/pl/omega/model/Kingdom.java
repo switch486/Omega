@@ -1,5 +1,7 @@
 package pl.omega.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,12 +29,16 @@ public class Kingdom {
 	 */
 	
 	private int universumSpeed; 
+	
+	private long score;
+	private int positionActuall;
+	private int gamersActuall;
+	
+	private Planet homePlanet;
 
-	private List<Planet> planets;
+	private final List<Planet> planets = new ArrayList<Planet>();
 	
-	private Map<Coordinates, Planet> neighbourMap;
-	
-	private long antimateria;
+	private final Map<Coordinates, Planet> neighbourMap = new HashMap<Coordinates, Planet>();
 	
 	/*
 	 * Research
@@ -64,8 +70,64 @@ public class Kingdom {
 		return universumSpeed;
 	}
 
-	public void setUniversumSpeed(int universumSpeed) {
-		this.universumSpeed = universumSpeed;
+	public void setUniversumSpeed(String universumSpeed) {
+		this.universumSpeed = Integer.parseInt(universumSpeed);
+	}
+
+	public Planet getHomePlanet() {
+		return homePlanet;
+	}
+
+	public void setHomePlanet(Planet homePlanet) {
+		this.homePlanet = homePlanet;
+	}
+
+	public long getScore() {
+		return score;
+	}
+
+	/**
+	 * Actually does the method a bit more than only parsing to a long datatype. 
+	 */
+	private long toLong(String string) {
+		// TODO Adam Puchalski - Apr 18, 2012 - move this method somewhere else, replace by stringutils, or guava?
+		return Long.parseLong(string.trim().replace(".", "" ));
+	}
+	
+	/**
+	 * Actually does the method a bit more than only parsing to a int datatype. 
+	 */
+	private int toInt(String string) {
+		// TODO Adam Puchalski - Apr 18, 2012 - move this method somewhere else, replace by stringutils, or guava?
+		return Integer.parseInt(string.trim().replace(".", "" ));
+	}
+	
+	public void setScore(String score) {
+		this.score = toLong(score);
+	}
+
+	public int getPositionActuall() {
+		return positionActuall;
+	}
+
+	public void setPositionActuall(String positionActuall) {
+		this.positionActuall = toInt(positionActuall);
+	}
+
+	public int getGamersActuall() {
+		return gamersActuall;
+	}
+
+	public void setGamersActuall(String gamersActuall) {
+		this.gamersActuall = toInt(gamersActuall);
+	}
+	
+	public Planet getPlanet(int i) {
+		return planets.get(i);
+	}
+	
+	public void addPlanet (Planet p) {
+		planets.add(p);
 	}
 	
 	

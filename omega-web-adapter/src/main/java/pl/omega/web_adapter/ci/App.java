@@ -18,12 +18,19 @@ public class App {
 		WebAdapterUpdaterFacade w = OmegaRegistry.getBean(WebAdapterUpdaterFacadeImpl.class);
 
 		SessionData sessionData = new SessionData("UczeSie", "calineczka", "uni1", "ogame.pl");
-		Kingdom loadEDKingdom = w.loadKingdom(sessionData);
+		Kingdom loadedKingdom = w.loadKingdom(sessionData);
 
-		int speed = loadEDKingdom.getUniversumSpeed();
+		int speed = loadedKingdom.getUniversumSpeed();
 		System.out.println("uni1speed = " + speed);
+		System.out.println("m>" + loadedKingdom.getHomePlanet().getResMetal());
+		System.out.println("c>" + loadedKingdom.getHomePlanet().getResCristal());
+		System.out.println("d>" + loadedKingdom.getHomePlanet().getResDeuterium());
+		System.out.println("e>" + loadedKingdom.getHomePlanet().getResEnergy());
+		System.out.println("score>" + loadedKingdom.getScore());
+		System.out.println("position>" + loadedKingdom.getPositionActuall() + "/" + loadedKingdom.getGamersActuall());
+		System.out.println("templow" + loadedKingdom.getHomePlanet().getTemperatureLow());
+		System.out.println("tempMax" + loadedKingdom.getHomePlanet().getTemperatureHigh());
 		
-//		System.out.println(sessionData);
 	}
 
 }

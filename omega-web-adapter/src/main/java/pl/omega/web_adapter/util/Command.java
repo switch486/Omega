@@ -1,12 +1,13 @@
 package pl.omega.web_adapter.util;
 
+import pl.omega.model.OmegaPage;
 import pl.omega.model.Properties;
 import pl.omega.model.SessionData;
 
 public abstract class Command {
 	
 	protected SessionData sessionData = null;
-	protected String omegaPageToView = null;
+	protected OmegaPage omegaPageToView = null;
 	protected Properties properties = null;
 	
 	protected String command;
@@ -16,7 +17,7 @@ public abstract class Command {
 		return sessionData;
 	}
 
-	public String getOmegaPageToView() {
+	public OmegaPage getOmegaPageToView() {
 		return omegaPageToView;
 	}
 
@@ -30,7 +31,7 @@ public abstract class Command {
 		return setArguments(sessionData, null, null);
 	}
 	
-	public Command setArguments(SessionData sessionData, String omegaPageToView, Properties properties) {
+	public Command setArguments(SessionData sessionData, OmegaPage omegaPageToView, Properties properties) {
 		this.sessionData = sessionData;
 		this.omegaPageToView = omegaPageToView;
 		this.properties = properties;

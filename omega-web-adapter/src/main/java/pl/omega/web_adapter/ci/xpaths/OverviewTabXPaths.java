@@ -1,9 +1,13 @@
 package pl.omega.web_adapter.ci.xpaths;
 
-
 public class OverviewTabXPaths extends AbstractXPaths {
 
-	// TODO Adam Puchalski - Apr 17, 2012 - implementation pending
-	public static final String actualMetalGotXPATH = "";
+	/**
+	 * For tag: <span id="diameterContentField">
+	 */
+	// TODO Adam Puchalski - Apr 19, 2012 - are probably not needed, remove?
+//	public static final String overviewPlanetSizeXPath = "//span[@id='diameterContentField']";
+//	public static final String overviewPlanetTemperatureXPath = "//span[@id='temperatureContentField']";
+//	public static final String overviewPlanetScoreXPath = "//span[@id='scoreContentField']";
 	
 }

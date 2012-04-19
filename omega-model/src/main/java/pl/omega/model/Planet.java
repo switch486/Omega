@@ -52,7 +52,7 @@ public class Planet {
 	/*
 	 * info from the general Tab
 	 */
-	private int avaliableFields;
+	private int usedFields;
 	private int allFields;
 	private int temperatureLow;
 	private int temperatureHigh;
@@ -75,6 +75,8 @@ public class Planet {
 	private long resCristal;
 	private long resDeuterium;
 	private long resEnergy;
+	private long resDarkMatter;
+	
 	private long resMetalMax;
 	private long resCristalMax;
 	private long resDeuteriumMax;
@@ -143,6 +145,116 @@ public class Planet {
 	
 	public void calculateProduction() {
 		// TODO Adam Puchalski - Apr 10, 2012 - 
+	}
+
+	public long getPlanetID() {
+		return planetID;
+	}
+
+	public void setPlanetID(String planetID) {
+		this.planetID = Long.parseLong(planetID);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Coordinates getCoordinates() {
+		return coordinates;
+	}
+
+	public void setCoordinates(Coordinates coordinates) {
+		this.coordinates = coordinates;
+	}
+
+	public long getResMetal() {
+		return resMetal;
+	}
+
+	public void setResMetal(String resMetal) {
+		this.resMetal = toLong(resMetal);
+	}
+
+	/**
+	 * Actually does the method a bit more than only parsing to a long datatype. 
+	 */
+	private long toLong(String resMetal) {
+		// TODO Adam Puchalski - Apr 18, 2012 - move this method somewhere else, replace by stringutils, or guava?
+		return Long.parseLong(resMetal.trim().replace(".", "" ));
+	}
+
+	public long getResCristal() {
+		return resCristal;
+	}
+
+	public void setResCristal(String resCristal) {
+		this.resCristal = toLong(resCristal);
+	}
+
+	public long getResDeuterium() {
+		return resDeuterium;
+	}
+
+	public void setResDeuterium(String resDeuterium) {
+		this.resDeuterium = toLong(resDeuterium);
+	}
+
+	public long getResEnergy() {
+		return resEnergy;
+	}
+
+	public void setResEnergy(String resEnergy) {
+		this.resEnergy = toLong(resEnergy);
+	}
+
+	public long getResDarkMatter() {
+		return resDarkMatter;
+	}
+
+	public void setResDarkMatter(String resDarkMatter) {
+		this.resDarkMatter = toLong(resDarkMatter);
+	}
+
+	public int getUsedFields() {
+		return usedFields;
+	}
+
+	public void setUsedFields(int usedFields) {
+		this.usedFields = usedFields;
+	}
+
+	public int getAllFields() {
+		return allFields;
+	}
+
+	public void setAllFields(int allFields) {
+		this.allFields = allFields;
+	}
+
+	public int getTemperatureLow() {
+		return temperatureLow;
+	}
+
+	public void setTemperatureLow(String temperatureLow) {
+		this.temperatureLow = Integer.parseInt(temperatureLow);
+	}
+
+	public int getTemperatureHigh() {
+		return temperatureHigh;
+	}
+
+	public void setTemperatureHigh(String temperatureHigh) {
+		this.temperatureHigh = Integer.parseInt(temperatureHigh);
+	}
+
+	public void setPlanetSize(String planetSize) {
+		String [] s = planetSize.split("/");
+		setUsedFields(Integer.parseInt(s[0]));
+		setAllFields(Integer.parseInt(s[1]));
 	}
 	
 	// TODO Adam Puchalski - Apr 10, 2012 - ships...
