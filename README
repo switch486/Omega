@@ -1,18 +1,20 @@
 What is this project about?
 
-TODO
+This is a proof of concept project designed to play a web browser based game. It uses the selenium as the web worker to manipulate with web pages and the session within. In the future, a specialised AI will make the gaming decisions.
 
+-------------------------
 How to install a developing environment for the project?
 
-1. Maven is used to manage and build the project and all subprojects. 
-   Install maven if you haven't already.
-2. Fetch an eclipse with a maven plugin. It will make the
-   development easier. SpringSource Tool Suite is fine.
-3. Clone git repository.
-4. Perform 'mvn compile'.
-5. Import the projects to eclipse.
-6. Profit.
+Installations:
+maven, eclipse, git, gitstats, gnuplot, python
+I would propose to install the STS (Spring Tool Suite) - eclipse + maven, and the rest via apt-get installation (debian/ubuntu)
+All dependencies are being downloaded automatically with the 'mvn compile' command.
 
-Before you commit.
+1. Maven is used to manage and build the project and all subprojects.    
+2. Clone git repository.
+3. Perform 'mvn clean compile'.
+4. Import the projects to eclipse.
+5. Profit.
 
-1. Run 'maven clean' so the target directories are deleted.
+-------------------------
+To generate the statistics please run 'sh generateStatistics.sh'. The results are available in ./statistics/index.html
