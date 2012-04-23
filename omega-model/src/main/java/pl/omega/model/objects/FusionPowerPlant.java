@@ -1,6 +1,7 @@
 package pl.omega.model.objects;
 
 public class FusionPowerPlant extends PowerPlant {
+	//Elektrownia fuzyjna (1,8) - 900 : 360 : 180
 
 //	private final int energeticResearchLevel;
 
@@ -23,13 +24,11 @@ public class FusionPowerPlant extends PowerPlant {
 	}
 	
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 360;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 180;
 	}
 
 	public int getStartEnergyNeeds() {
@@ -38,8 +37,11 @@ public class FusionPowerPlant extends PowerPlant {
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 900;
+	}
+
+	public double getLevelMultiplayer() {
+		return 1.8;
 	}
 
 }

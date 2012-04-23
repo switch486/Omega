@@ -1,25 +1,26 @@
 package pl.omega.model.objects;
 
 public class CrystalMine extends Mine {
+	//Kopalnia kryształu (1,6) - 48 : 24 : 0
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 24;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 48;
+	}
+
+	public double getLevelMultiplayer() {
+		return 1.6;
 	}
 
 //	@Override

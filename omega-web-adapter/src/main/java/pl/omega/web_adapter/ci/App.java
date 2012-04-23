@@ -18,7 +18,7 @@ public class App {
 		WebAdapterUpdaterFacade w = OmegaRegistry.getBean(WebAdapterUpdaterFacadeImpl.class);
 
 		SessionData sessionData = new SessionData("UczeSie", "calineczka", "uni1", "ogame.pl");
-		Kingdom loadedKingdom = w.loadKingdom(sessionData);
+		Kingdom loadedKingdom = w.loadKingdom(sessionData, Strategy.EAGER);
 
 		int speed = loadedKingdom.getUniversumSpeed();
 		System.out.println("uni1speed = " + speed);

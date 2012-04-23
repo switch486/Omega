@@ -59,6 +59,11 @@ public class SolarSatelit extends CivilShip {
 		return 0;
 	}
 
+	public double getLevelMultiplayer() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	// TODO Adam Puchalski - Apr 10, 2012 - level here means the number of
 	// saletilts......
 }

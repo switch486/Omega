@@ -1,25 +1,26 @@
 package pl.omega.model.objects;
 
 public class CrystalWarehouse extends Warehouse {
+	//Magazyn kryształu (2) - 1 000 : 500 : 0
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 500;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1000;
+	}
+
+	public double getLevelMultiplayer() {
+		return 2;
 	}
 
 }

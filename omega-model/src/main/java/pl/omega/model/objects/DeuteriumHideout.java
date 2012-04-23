@@ -3,23 +3,23 @@ package pl.omega.model.objects;
 public class DeuteriumHideout extends Hideout {
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2645;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2645;
+	}
+
+	public double getLevelMultiplayer() {
+		return 2.3;
 	}
 
 }

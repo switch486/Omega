@@ -1,6 +1,8 @@
 package pl.omega.web_adapter.ci;
 
 import pl.omega.model.Kingdom;
+import pl.omega.model.OmegaPage;
+import pl.omega.model.Planet;
 import pl.omega.model.SessionData;
 
 /**
@@ -11,7 +13,6 @@ import pl.omega.model.SessionData;
  * @author Marek Puchalski
  */
 public interface WebAdapterUpdaterFacade {
-	// TODO Adam Puchalski - Mar 23, 2012 - how too solve problem of refreshing resources having more than one planet
 
 	/**
 	 * This operation loads all the needed information from the webPage. All planets, buildings on them, ...
@@ -20,11 +21,29 @@ public interface WebAdapterUpdaterFacade {
 	 * @param sessionData
 	 * @return 
 	 */
-	Kingdom loadKingdom(SessionData sessionData);
+	Kingdom loadKingdom(SessionData sessionData, Strategy strategy);
+
+	Kingdom updateOverviewPage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+
+	Kingdom updateResourcesPage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
 	
-	void updatePlanets();
-
-	void updateFlights();
-
-	void updateBuildings();
+	Kingdom updateStationPage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+	
+	Kingdom updateResearchPage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+	
+	Kingdom updateShipyardPage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+	
+	Kingdom updateDefensePage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+	
+	Kingdom updateFleetPage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+	
+	Kingdom updateGalaxyPage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+	
+	Kingdom updateAlliancePage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+	
+	Kingdom updateGlobalTechTreePage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+	
+	Kingdom updateResourceSettingsPage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
+	
+	Kingdom updateOmegaPage(SessionData sessionData, Kingdom kingdom, Planet planet, OmegaPage page, Strategy strategy);
 }

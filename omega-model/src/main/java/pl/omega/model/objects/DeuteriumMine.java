@@ -1,27 +1,28 @@
 package pl.omega.model.objects;
 
 public class DeuteriumMine extends Mine {
+	//Ekstraktor deuteru (1,5) - 225 : 75 : 0
 	
 //	private final int temperatureHigh;
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 75;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 225;
+	}
+
+	public double getLevelMultiplayer() {
+		return 1.5;
 	}
 
 //	@Override

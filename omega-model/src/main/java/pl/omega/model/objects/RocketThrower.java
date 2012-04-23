@@ -37,4 +37,9 @@ public class RocketThrower extends Gun {
 		return 0;
 	}
 
+	public double getLevelMultiplayer() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

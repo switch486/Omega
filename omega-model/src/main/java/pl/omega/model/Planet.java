@@ -256,6 +256,124 @@ public class Planet {
 		setUsedFields(Integer.parseInt(s[0]));
 		setAllFields(Integer.parseInt(s[1]));
 	}
+
+	public MetalMine getMetalMine() {
+		if (metalMine == null)
+			metalMine = new MetalMine();
+		return metalMine;
+	}
+
+	public void setMetalMine(MetalMine metalMine) {
+		this.metalMine = metalMine;
+	}
+
+	public CrystalMine getCrystalMine() {
+		if (crystalMine == null)
+			crystalMine = new CrystalMine();
+		return crystalMine;
+	}
+
+	public void setCrystalMine(CrystalMine crystalMine) {
+		this.crystalMine = crystalMine;
+	}
+
+	public DeuteriumMine getDeuteriumMine() {
+		if (deuteriumMine == null)
+			deuteriumMine = new DeuteriumMine();
+		return deuteriumMine;
+	}
+
+	public void setDeuteriumMine(DeuteriumMine deuteriumMine) {
+		this.deuteriumMine = deuteriumMine;
+	}
+
+	public SolarPowerPlant getSolarPowerPlant() {
+		if (solarPowerPlant == null)
+			solarPowerPlant = new SolarPowerPlant();
+		return solarPowerPlant;
+	}
+
+	public void setSolarPowerPlant(SolarPowerPlant solarPowerPlant) {
+		this.solarPowerPlant = solarPowerPlant;
+	}
+
+	public FusionPowerPlant getFusionPowerPlant() {
+		if (fusionPowerPlant == null)
+			fusionPowerPlant = new FusionPowerPlant();
+		return fusionPowerPlant;
+	}
+
+	public void setFusionPowerPlant(FusionPowerPlant fusionPowerPlant) {
+		this.fusionPowerPlant = fusionPowerPlant;
+	}
+
+	public List<SolarSatelit> getSolarSatelites() {
+		return solarSatelites;
+	}
+
+	public void setSolarSatelites(List<SolarSatelit> solarSatelites) {
+		this.solarSatelites = solarSatelites;
+	}
+
+	public MetalWarehouse getMetalWarehouse() {
+		if (metalWarehouse == null)
+			metalWarehouse = new MetalWarehouse();
+		return metalWarehouse;
+	}
+
+	public void setMetalWarehouse(MetalWarehouse metalWarehouse) {
+		this.metalWarehouse = metalWarehouse;
+	}
+
+	public CrystalWarehouse getCrystalWarehouse() {
+		if (crystalWarehouse == null)
+			crystalWarehouse = new CrystalWarehouse();
+		return crystalWarehouse;
+	}
+
+	public void setCrystalWarehouse(CrystalWarehouse crystalWarehouse) {
+		this.crystalWarehouse = crystalWarehouse;
+	}
+
+	public DeuteriumWarehouse getDeuteriumWarehouse() {
+		if (deuteriumWarehouse == null)
+			deuteriumWarehouse = new DeuteriumWarehouse();
+		return deuteriumWarehouse;
+	}
+
+	public void setDeuteriumWarehouse(DeuteriumWarehouse deuteriumWarehouse) {
+		this.deuteriumWarehouse = deuteriumWarehouse;
+	}
+
+	public MetalHideout getMetalHideout() {
+		if (metalHideout == null)
+			metalHideout = new MetalHideout();
+		return metalHideout;
+	}
+
+	public void setMetalHideout(MetalHideout metalHideout) {
+		this.metalHideout = metalHideout;
+	}
+
+	public CrystalHideout getCrystalHideout() {
+		if (crystalHideout == null)
+			crystalHideout = new CrystalHideout();
+		return crystalHideout;
+	}
+
+	public void setCrystalHideout(CrystalHideout crystalHideout) {
+		this.crystalHideout = crystalHideout;
+	}
+
+	public DeuteriumHideout getDeuteriumHideout() {
+		if (deuteriumHideout == null)
+			deuteriumHideout = new DeuteriumHideout();
+		return deuteriumHideout;
+	}
+
+	public void setDeuteriumHideout(DeuteriumHideout deuteriumHideout) {
+		this.deuteriumHideout = deuteriumHideout;
+	}
 	
 	// TODO Adam Puchalski - Apr 10, 2012 - ships...
 	// TODO Adam Puchalski - Apr 10, 2012 - defence

@@ -1,6 +1,7 @@
 package pl.omega.model.objects;
 
 public class SolarPowerPlant extends PowerPlant {
+	//Elektrownia słoneczna (1,5) - 75 : 30 : 0
 
 
 //	@Override
@@ -9,23 +10,23 @@ public class SolarPowerPlant extends PowerPlant {
 //	}
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 30;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 75;
+	}
+
+	public double getLevelMultiplayer() {
+		return 1.5;
 	}
 
 }

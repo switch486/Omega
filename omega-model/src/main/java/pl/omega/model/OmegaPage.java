@@ -86,4 +86,18 @@ public class OmegaPage {
 	@Deprecated
 	public static final OmegaPage PREMIUM = new OmegaPage("premium");
 
+	/**
+	 * The Technology Page
+	 */
+	public static final OmegaPage TECH_INFO = new OmegaPage("techinfo");
+	
+	/**
+	 * The Technology Tree
+	 */
+	public static final OmegaPage GLOBAL_TECH_TREE = new OmegaPage("globalTechtree");
+	
+	/**
+	 * The resource settings with the production levels for a planet
+	 */
+	public static final OmegaPage RESOURCE_SETTINGS = new OmegaPage("resourceSettings");
 }

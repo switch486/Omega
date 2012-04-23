@@ -1,26 +1,29 @@
 package pl.omega.model.objects;
 
 public class MetalMine extends Mine {
-
+	// Kopalnia metalu (1,5) - 60 : 15 : 0
+	
+	// TODO Adam Puchalski - Apr 24, 2012 - maybe there is a better place for this... parsing this will cause tonns of problems
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 15;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 60;
 	}
+
+	public double getLevelMultiplayer() {
+		return 1.5;
+	}
+	
 
 //	@Override
 //	public void updateProduction() {

@@ -26,5 +26,7 @@ public abstract class AbstractXPaths {
 	// for <div id="myWorlds"> and <div class="smallplanet">
 	public static final String planetsXPath = "//div[@id='myWorlds']/div[@class='smallplanet']/a";
 	public static final String planetsAttributeHrefKey = "href";
+	public static final String planetsAttributeClassKey = "class";
+	public static final String planetsBuildingAtTheMomentValue = "constructionIcon tipsStandard";
 
 }

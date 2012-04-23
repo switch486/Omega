@@ -22,4 +22,9 @@ public class EnergeticTechnology extends TechnologyResearch {
 		return 0;
 	}
 
+	public double getLevelMultiplayer() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

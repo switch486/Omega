@@ -6,5 +6,6 @@ public interface Buildable {
 	public int getStartDeuteriumNeeds();
 	public int getStartEnergyNeeds();
 	public int getStartMetalNeeds();
+	public double getLevelMultiplayer();
 	
 }

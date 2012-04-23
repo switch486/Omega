@@ -5,8 +5,10 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import pl.omega.model.Kingdom;
 import pl.omega.model.OmegaPage;
+import pl.omega.model.Planet;
 import pl.omega.model.Properties;
 import pl.omega.model.SessionData;
+import pl.omega.web_adapter.ci.Strategy;
 import pl.omega.web_adapter.ci.WebAdapterUpdaterFacade;
 import pl.omega.web_adapter.ci.commands.ExecutedCommand;
 import pl.omega.web_adapter.ci.commands.impl.CommandBuilder;
@@ -21,57 +23,159 @@ import pl.omega.web_adapter.util.Command;
  * @author Adam Puchalski
  */
 public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
-	// TODO Adam Puchalski - Apr 4, 2012 - a hierarchy would be useful here - so the executor and updater have the same base class.
-	
+	// TODO Adam Puchalski - Apr 4, 2012 - a hierarchy would be useful here - so
+	// the executor and updater have the same base class.
+
 	private WebSessionData webSessionData;
 
 	public void setWebSessionData(WebSessionData webSessionData) {
 		this.webSessionData = webSessionData;
 	}
 
-	public Kingdom loadKingdom(SessionData sessionData) {
+	public Kingdom loadKingdom(SessionData sessionData, Strategy strategy) {
 		// TODO Marek Puchalski - Apr 7, 2012 - this should be reworked!
 		if (webSessionData != null && webSessionData.getWebDriver() == null) {
 			webSessionData.setWebDriver(new HtmlUnitDriver());
 		}
-		// Update resources for one planet
-		Command c = new CommandBuilder().getStandardCommand();
-		c.setArguments(sessionData, OmegaPage.OVERVIEW, new Properties());
-		ExecutedCommand result = executeCommand(c, true);
-		// TODO Adam Puchalski - Apr 17, 2012 - is the result page needed somewhere else?
-		return initAllData(result.getRoot(),result.getOutputBody(), OmegaPage.OVERVIEW);
+		
+		Kingdom kingdom = updateOverviewPage(sessionData, null, null, strategy);
+		if (strategy == Strategy.ROOT) {
+			return kingdom;
+		}
+		
+		updateRestForPlanet(sessionData, kingdom, kingdom.getHomePlanet(), strategy);
+		
+		if (strategy == Strategy.SINGLE) {
+			return kingdom;
+		}
+		
+		for (int i=0; i<kingdom.getPlanetCount(); i++) {
+			updateRestForPlanet(sessionData, kingdom, kingdom.getPlanet(i), strategy);
+		} 
+		
+		if (strategy == Strategy.EAGER) {
+			return kingdom;
+		}
+		
+		// else needed?
+		return null;
 	}
 
-	private Kingdom initAllData(TagNode root, String pageBody, OmegaPage omegaPage) {
-		Kingdom k = new Kingdom();
-		return updateAllData(k, root, pageBody, omegaPage);
+	public Kingdom updateOmegaPage(SessionData sessionData, Kingdom kingdom, Planet planet, OmegaPage page, Strategy strategy) {
+		ExecutedCommand result = webGetOmegaPage(sessionData, page,
+				new Properties());
+		if (kingdom == null) {
+			return initAllData(result.getRoot(), result.getOutputBody(),
+					page, strategy);
+		}
+		return updateAllData(kingdom, planet, result.getRoot(), result.getOutputBody(), page, strategy);
 	}
 
-	private Kingdom updateAllData(Kingdom k, TagNode root, String pageBody, OmegaPage omegaPage) {
-		return new XPathKingdomDataLoader().updateKingdom(k, root, pageBody, omegaPage);
+	public Kingdom updateResourcesPage(SessionData sessionData,
+			Kingdom kingdom, Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet,
+				OmegaPage.RESOURCES, strategy);
 	}
 
-	private ExecutedCommand executeCommand(Command c, boolean reloginIfExecutionFails) {
+	public Kingdom updateOverviewPage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.OVERVIEW, strategy);
+	}
+
+	public Kingdom updateStationPage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.STATION, strategy);
+	}
+
+	public Kingdom updateResearchPage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.RESEARCH, strategy);
+	}
+
+	public Kingdom updateShipyardPage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.SHIPYARD, strategy);
+	}
+
+	public Kingdom updateDefensePage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.DEFENSE, strategy);
+	}
+
+	public Kingdom updateFleetPage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.FLEET1, strategy);
+	}
+
+	public Kingdom updateGalaxyPage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.GALAXY, strategy);
+	}
+
+	public Kingdom updateAlliancePage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.ALLIANCE, strategy);
+	}
+	
+	public Kingdom updateGlobalTechTreePage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.GLOBAL_TECH_TREE, strategy);
+	}
+	
+	public Kingdom updateResourceSettingsPage(SessionData sessionData, Kingdom kingdom,
+			Planet planet, Strategy strategy) {
+		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.RESOURCE_SETTINGS, strategy);
+	}
+
+	private ExecutedCommand executeCommand(Command c,
+			boolean reloginIfExecutionFails) {
 		if (reloginIfExecutionFails) {
 			try {
-				return new CommandExecutor().executeCommand (webSessionData, c);
-			} catch(NoSessionException e) {
-				new CommandExecutor().executeCommand(webSessionData, new CommandBuilder().getLogInCommand().storeArguments(c.getSessionData()).proposeArguments());
+				return new CommandExecutor().executeCommand(webSessionData, c);
+			} catch (NoSessionException e) {
+				new CommandExecutor().executeCommand(
+						webSessionData,
+						new CommandBuilder().getLogInCommand()
+								.storeArguments(c.getSessionData())
+								.proposeArguments());
 			}
 		}
 		return new CommandExecutor().executeCommand(webSessionData, c);
 	}
 
-	public void updateFlights() {
-		// TODO Auto-generated method stub
+	private Kingdom initAllData(TagNode root, String pageBody,
+			OmegaPage omegaPage, Strategy strategy) {
+		Kingdom k = new Kingdom();
+		return updateAllData(k, null, root, pageBody, omegaPage, strategy);
 	}
 
-	public void updateBuildings() {
-		// TODO Auto-generated method stub
+	private Kingdom updateAllData(Kingdom k, Planet p, TagNode root, String pageBody,
+			OmegaPage omegaPage, Strategy strategy) {
+		return new XPathKingdomDataLoader().updateKingdomInfo(k, p, root, pageBody,
+				omegaPage, strategy);
 	}
 
-	public void updatePlanets() {
-		// TODO Auto-generated method stub
+	private void updateRestForPlanet(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy) {
+		updateResourcesPage(sessionData, kingdom, planet, strategy);
+		// TODO Adam Puchalski - Apr 24, 2012 - uncomment as soon as the implementation will be ready
+//		updateStationPage(sessionData, kingdom, planet, strategy);
+//		updateResearchPage(sessionData, kingdom, planet, strategy);
+//		updateShipyardPage(sessionData, kingdom, planet, strategy);
+//		updateDefensePage(sessionData, kingdom, planet, strategy);
+//		updateFleetPage(sessionData, kingdom, planet, strategy);
+//		updateGalaxyPage(sessionData, kingdom, planet, strategy);
+//		updateAlliancePage(sessionData, kingdom, planet, strategy);
+//		// TODO Adam Puchalski - Apr 24, 2012 - is the one below really needed?
+//		updateGlobalTechTreePage(sessionData, kingdom, planet, strategy);
+//		updateResourceSettingsPage(sessionData, kingdom, planet, strategy);
 	}
-	
+
+	private ExecutedCommand webGetOmegaPage(SessionData sessionData,
+			OmegaPage pageToView, Properties properties) {
+		Command c = new CommandBuilder().getStandardCommand();
+		c.setArguments(sessionData, pageToView, properties);
+		ExecutedCommand result = executeCommand(c, true);
+		return result;
+	}
+
 }
