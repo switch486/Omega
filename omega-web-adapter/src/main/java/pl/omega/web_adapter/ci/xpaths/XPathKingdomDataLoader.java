@@ -17,7 +17,109 @@ public class XPathKingdomDataLoader {
 			return overviewKingdomUpdater(k, p, root, pageBody);
 		if (omegaPage.equals(OmegaPage.RESOURCES))
 			return resourcesKingdomUpdater(k, p, root, strategy);
+		if (omegaPage.equals(OmegaPage.STATION))
+			return stationKingdomUpdater(k, p, root, strategy);
+		if (omegaPage.equals(OmegaPage.RESEARCH))
+			return researchKingdomUpdater(k, p, root, strategy);
 		throw new RuntimeException("invalid omega page or not implemented yet");
+	}
+
+	private Kingdom researchKingdomUpdater(Kingdom k, Planet p, TagNode root,
+			Strategy strategy) {
+		parseDependingOnStrategy(k, p, root, strategy);
+
+		updateResearchPageSpecificInformation(k, root);
+
+		return k;
+	}
+
+	private void updateResearchPageSpecificInformation(Kingdom k, TagNode root) {
+		k.getEnergeticTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchEnergeticTechnologyXPath)));
+		k.getLaserTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchLaserTechnologyXPath)));
+		k.getIonTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchIonTechnologyXPath)));
+		k.getHyperspaceTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchHyperspaceTechnologyXPath)));
+		k.getPlasmaTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchPlasmaTechnologyXPath)));
+
+		k.getSteamEngine().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchSteamEngineXPath)));
+		k.getImpulseEngine().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchImpulseEngineXPath)));
+		k.getHyperspaceEngine().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchHyperspaceEngineXPath)));
+
+		k.getSpyTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchSpyTechnologyXPath)));
+		k.getComputerTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchComputerTechnologyXPath)));
+		k.getAstrophysics().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchAstrophysicsXPath)));
+		k.getIntergalacticResearchNetwork()
+				.setLevel(
+						toStringThirdChild(evaluateXPath(
+								root,
+								ResearchTabXPaths.researchIntergalacticResearchNetworkXPath)));
+		k.getGravitonTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchGravitonTechnologyXPath)));
+
+		k.getAttackTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchAttackTechnologyXPath)));
+		k.getShieldTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchShieldTechnologyXPath)));
+		k.getArmourTechnology().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						ResearchTabXPaths.researchArmourTechnologyXPath)));
+	}
+
+	private Kingdom stationKingdomUpdater(Kingdom k, Planet p, TagNode root,
+			Strategy strategy) {
+		parseDependingOnStrategy(k, p, root, strategy);
+
+		updateStationPageSpecificInformation(p, root);
+
+		return k;
+	}
+
+	private void updateStationPageSpecificInformation(Planet p, TagNode root) {
+		p.getRobotFactory().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						StationTabXPaths.stationRobotFactoryXPath)));
+		p.getDock().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						StationTabXPaths.stationDockXPath)));
+		p.getResearchLab().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						StationTabXPaths.stationResearchLabXPath)));
+		p.getAllydeposit().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						StationTabXPaths.stationAllyDepositXPath)));
+		p.getRocketSilo().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						StationTabXPaths.stationRocketSiloXPath)));
+		p.getNanitFactory().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						StationTabXPaths.stationNanitFactoryXPath)));
+		p.getTerraformer().setLevel(
+				toStringThirdChild(evaluateXPath(root,
+						StationTabXPaths.stationTerraformerXPath)));
 	}
 
 	private Kingdom resourcesKingdomUpdater(Kingdom k, Planet p, TagNode root,

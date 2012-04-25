@@ -9,6 +9,7 @@ public abstract class ExecutableOmegaObject implements Buildable {
 	/**
 	 * the name of the Object
 	 */
+	// TODO Adam Puchalski - Apr 26, 2012 - check if the name is relevant at all!
 	public String name;
 	
 	protected int trimParseToInteger (String s) {

@@ -157,9 +157,9 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 
 	private void updateRestForPlanet(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy) {
 		updateResourcesPage(sessionData, kingdom, planet, strategy);
+		updateStationPage(sessionData, kingdom, planet, strategy);
+		updateResearchPage(sessionData, kingdom, planet, strategy);
 		// TODO Adam Puchalski - Apr 24, 2012 - uncomment as soon as the implementation will be ready
-//		updateStationPage(sessionData, kingdom, planet, strategy);
-//		updateResearchPage(sessionData, kingdom, planet, strategy);
 //		updateShipyardPage(sessionData, kingdom, planet, strategy);
 //		updateDefensePage(sessionData, kingdom, planet, strategy);
 //		updateFleetPage(sessionData, kingdom, planet, strategy);

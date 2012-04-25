@@ -374,6 +374,76 @@ public class Planet {
 	public void setDeuteriumHideout(DeuteriumHideout deuteriumHideout) {
 		this.deuteriumHideout = deuteriumHideout;
 	}
+
+	public RobotFactory getRobotFactory() {
+		if (robotFactory == null)
+			robotFactory = new RobotFactory();
+		return robotFactory;
+	}
+
+	public void setRobotFactory(RobotFactory robotFactory) {
+		this.robotFactory = robotFactory;
+	}
+
+	public Dock getDock() {
+		if (dock == null)
+			dock = new Dock();
+		return dock;
+	}
+
+	public void setDock(Dock dock) {
+		this.dock = dock;
+	}
+
+	public ResearchLab getResearchLab() {
+		if (researchLab == null)
+			researchLab = new ResearchLab();
+		return researchLab;
+	}
+
+	public void setResearchLab(ResearchLab researchLab) {
+		this.researchLab = researchLab;
+	}
+
+	public AllyDeposit getAllydeposit() {
+		if (allydeposit == null)
+			allydeposit = new AllyDeposit();
+		return allydeposit;
+	}
+
+	public void setAllydeposit(AllyDeposit allydeposit) {
+		this.allydeposit = allydeposit;
+	}
+
+	public RocketSilo getRocketSilo() {
+		if (rocketSilo == null)
+			rocketSilo = new RocketSilo();
+		return rocketSilo;
+	}
+
+	public void setRocketSilo(RocketSilo rocketSilo) {
+		this.rocketSilo = rocketSilo;
+	}
+
+	public NanitFactory getNanitFactory() {
+		if (nanitFactory == null)
+			nanitFactory = new NanitFactory();
+		return nanitFactory;
+	}
+
+	public void setNanitFactory(NanitFactory nanitFactory) {
+		this.nanitFactory = nanitFactory;
+	}
+
+	public Terraformer getTerraformer() {
+		if (terraformer == null)
+			terraformer = new Terraformer();
+		return terraformer;
+	}
+
+	public void setTerraformer(Terraformer terraformer) {
+		this.terraformer = terraformer;
+	}
 	
 	// TODO Adam Puchalski - Apr 10, 2012 - ships...
 	// TODO Adam Puchalski - Apr 10, 2012 - defence

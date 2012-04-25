@@ -133,6 +133,167 @@ public class Kingdom {
 	public int getPlanetCount () {
 		return planets.size();
 	}
+
+	public EnergeticTechnology getEnergeticTechnology() {
+		if (energeticTechnology == null)
+			energeticTechnology = new EnergeticTechnology();
+		return energeticTechnology;
+	}
+
+	public void setEnergeticTechnology(EnergeticTechnology energeticTechnology) {
+		this.energeticTechnology = energeticTechnology;
+	}
+
+	public LaserTechnology getLaserTechnology() {
+		if (laserTechnology == null)
+			laserTechnology = new LaserTechnology();
+		return laserTechnology;
+	}
+
+	public void setLaserTechnology(LaserTechnology laserTechnology) {
+		this.laserTechnology = laserTechnology;
+	}
+
+	public IonTechnology getIonTechnology() {
+		if (ionTechnology == null)
+			ionTechnology = new IonTechnology();
+		return ionTechnology;
+	}
+
+	public void setIonTechnology(IonTechnology ionTechnology) {
+		this.ionTechnology = ionTechnology;
+	}
+
+	public HyperspaceTechnology getHyperspaceTechnology() {
+		if (hyperspaceTechnology == null)
+			hyperspaceTechnology = new HyperspaceTechnology();
+		return hyperspaceTechnology;
+	}
+
+	public void setHyperspaceTechnology(HyperspaceTechnology hyperspaceTechnology) {
+		this.hyperspaceTechnology = hyperspaceTechnology;
+	}
+
+	public PlasmaTechnology getPlasmaTechnology() {
+		if (plasmaTechnology == null)
+			plasmaTechnology = new PlasmaTechnology();
+		return plasmaTechnology;
+	}
+
+	public void setPlasmaTechnology(PlasmaTechnology plasmaTechnology) {
+		this.plasmaTechnology = plasmaTechnology;
+	}
+
+	public SteamEngine getSteamEngine() {
+		if (steamEngine == null)
+			steamEngine = new SteamEngine();
+		return steamEngine;
+	}
+
+	public void setSteamEngine(SteamEngine steamEngine) {
+		this.steamEngine = steamEngine;
+	}
+
+	public ImpulseEngine getImpulseEngine() {
+		if (impulseEngine == null)
+			impulseEngine = new ImpulseEngine();
+		return impulseEngine;
+	}
+
+	public void setImpulseEngine(ImpulseEngine impulseEngine) {
+		this.impulseEngine = impulseEngine;
+	}
+
+	public HyperspaceEngine getHyperspaceEngine() {
+		if (hyperspaceEngine == null)
+			hyperspaceEngine = new HyperspaceEngine();
+		return hyperspaceEngine;
+	}
+
+	public void setHyperspaceEngine(HyperspaceEngine hyperspaceEngine) {
+		this.hyperspaceEngine = hyperspaceEngine;
+	}
+
+	public SpyTechnology getSpyTechnology() {
+		if (spyTechnology == null)
+			spyTechnology = new SpyTechnology();
+		return spyTechnology;
+	}
+
+	public void setSpyTechnology(SpyTechnology spyTechnology) {
+		this.spyTechnology = spyTechnology;
+	}
+
+	public ComputerTechnology getComputerTechnology() {
+		if (computerTechnology == null)
+			computerTechnology = new ComputerTechnology();
+		return computerTechnology;
+	}
+
+	public void setComputerTechnology(ComputerTechnology computerTechnology) {
+		this.computerTechnology = computerTechnology;
+	}
+
+	public Astrophysics getAstrophysics() {
+		if (astrophysics == null)
+			astrophysics = new Astrophysics();
+		return astrophysics;
+	}
+
+	public void setAstrophysics(Astrophysics astrophysics) {
+		this.astrophysics = astrophysics;
+	}
+
+	public IntergalacticResearchNetwork getIntergalacticResearchNetwork() {
+		if (intergalacticResearchNetwork == null)
+			intergalacticResearchNetwork = new IntergalacticResearchNetwork();
+		return intergalacticResearchNetwork;
+	}
+
+	public void setIntergalacticResearchNetwork(
+			IntergalacticResearchNetwork intergalacticResearchNetwork) {
+		this.intergalacticResearchNetwork = intergalacticResearchNetwork;
+	}
+
+	public GravitonTechnology getGravitonTechnology() {
+		if (gravitonTechnology == null)
+			gravitonTechnology = new GravitonTechnology();
+		return gravitonTechnology;
+	}
+
+	public void setGravitonTechnology(GravitonTechnology gravitonTechnology) {
+		this.gravitonTechnology = gravitonTechnology;
+	}
+
+	public AttackTechnology getAttackTechnology() {
+		if (attackTechnology == null)
+			attackTechnology = new AttackTechnology();
+		return attackTechnology;
+	}
+
+	public void setAttackTechnology(AttackTechnology attackTechnology) {
+		this.attackTechnology = attackTechnology;
+	}
+
+	public ShieldTechnology getShieldTechnology() {
+		if (shieldTechnology == null)
+			shieldTechnology = new ShieldTechnology();
+		return shieldTechnology;
+	}
+
+	public void setShieldTechnology(ShieldTechnology shieldTechnology) {
+		this.shieldTechnology = shieldTechnology;
+	}
+
+	public ArmourTechnology getArmourTechnology() {
+		if (armourTechnology == null)
+			armourTechnology = new ArmourTechnology();
+		return armourTechnology;
+	}
+
+	public void setArmourTechnology(ArmourTechnology armourTechnology) {
+		this.armourTechnology = armourTechnology;
+	}
 	
 	
 	// TODO Adam Puchalski - Apr 10, 2012 - how to solve problem with earlier galaxy findings - farms, and so one
