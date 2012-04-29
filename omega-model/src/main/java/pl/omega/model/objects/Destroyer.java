@@ -3,57 +3,42 @@ package pl.omega.model.objects;
 public class Destroyer extends WarShip {
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 50000;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 15000;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 60000;
 	}
 
-	public int getStructurePoints() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getShield() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getShield() {
+		return 500;
 	}
 
 	public int getBaseSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 5000;
 	}
 
-	public int getAttack() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getAttack() {
+		return 2000;
 	}
 
 	public int getCapacity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2000;
 	}
 
 	public int getFuelConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1000;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

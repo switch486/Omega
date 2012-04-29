@@ -3,28 +3,23 @@ package pl.omega.model.objects;
 public class Terraformer extends StationBulding {
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 50000;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 100000;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1000;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2;
 	}
 
 }

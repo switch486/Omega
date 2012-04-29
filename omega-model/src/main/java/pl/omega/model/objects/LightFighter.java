@@ -1,59 +1,46 @@
 package pl.omega.model.objects;
 
 public class LightFighter extends WarShip {
+	
+	// TODO Adam Puchalski - Apr 29, 2012 - in case the starting costs or parameters vary on different unis, then other Omega pages also need to be parsed (technology tree)
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1000;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 3000;
 	}
 
-	public int getStructurePoints() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getShield() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getShield() {
+		return 10;
 	}
 
 	public int getBaseSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 12500;
 	}
 
-	public int getAttack() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getAttack() {
+		return 50;
 	}
 
 	public int getCapacity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 50;
 	}
 
 	public int getFuelConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 20;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

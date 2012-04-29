@@ -2,58 +2,44 @@ package pl.omega.model.objects;
 
 public class SmallTransporter extends CivilShip {
 
-	public int getStructurePoints() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getShield() {
+		return 10;
 	}
 
-	public int getShield() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	// TODO Adam Puchalski - Apr 29, 2012 - when the impulse Technology reaches a specific level, the ST speed sill increase!!!
 	public int getBaseSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 5000;
 	}
 
-	public int getAttack() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getAttack() {
+		return 5;
 	}
 
 	public int getCapacity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 5000;
 	}
 
 	public int getFuelConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 10;
 	}
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2000;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2000;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

@@ -21,7 +21,64 @@ public class XPathKingdomDataLoader {
 			return stationKingdomUpdater(k, p, root, strategy);
 		if (omegaPage.equals(OmegaPage.RESEARCH))
 			return researchKingdomUpdater(k, p, root, strategy);
+		if (omegaPage.equals(OmegaPage.SHIPYARD))
+			return researchShipyardUpdater(k, p, root, strategy);
 		throw new RuntimeException("invalid omega page or not implemented yet");
+	}
+
+	private Kingdom researchShipyardUpdater(Kingdom k, Planet p, TagNode root,
+			Strategy strategy) {
+		parseDependingOnStrategy(k, p, root, strategy);
+		
+		updateShipyardPageSpecificInformation(p, root);
+		
+		return k;
+	}
+
+	private void updateShipyardPageSpecificInformation(Planet p, TagNode root) {
+		p.getLightFighters().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardLightFighterXPath)));
+		p.getHeavyFighters().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardHeavyFighterXPath)));
+		p.getCruisers().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardCruiserXPath)));
+		p.getWarHorses().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardWarHorseXPath)));
+		p.getPanzers().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardPanzerXPath)));
+		p.getBombers().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardBomberXPath)));
+		p.getDestroyers().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardDestroyerXPath)));
+		p.getDeathStars().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardDeathStarXPath)));
+
+		p.getSmallTransporters().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardSmallTransporterXPath)));
+		p.getBigTransporters().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardBigTransporterXPath)));
+		p.getColonizators().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardColonizatorXPath)));
+		p.getRecyclers().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardRecyclerXPath)));
+		p.getSpyingSonds().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardSpyingSondXPath)));
+		p.getSolarSatelites().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						ShipyardTabXPaths.shipyardSolarSatelitXPath)));
 	}
 
 	private Kingdom researchKingdomUpdater(Kingdom k, Planet p, TagNode root,

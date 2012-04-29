@@ -3,57 +3,42 @@ package pl.omega.model.objects;
 public class DeathStar extends WarShip {
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 4000000;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1000000;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 5000000;
 	}
 
-	public int getStructurePoints() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getShield() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getShield() {
+		return 50000;
 	}
 
 	public int getBaseSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 100;
 	}
 
-	public int getAttack() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getAttack() {
+		return 200000;
 	}
 
 	public int getCapacity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1000000;
 	}
 
 	public int getFuelConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

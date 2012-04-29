@@ -3,28 +3,23 @@ package pl.omega.model.objects;
 public class Dock extends StationBulding {
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 200;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 100;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 400;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2;
 	}
 
 }

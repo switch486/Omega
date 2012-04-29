@@ -2,58 +2,43 @@ package pl.omega.model.objects;
 
 public class SpyingSond extends CivilShip {
 
-	public int getStructurePoints() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getShield() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getShield() {
+		return 0.01;
 	}
 
 	public int getBaseSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 100000000;
 	}
 
-	public int getAttack() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getAttack() {
+		return 0.01;
 	}
 
 	public int getCapacity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 5;
 	}
 
 	public int getFuelConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1000;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

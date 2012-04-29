@@ -3,28 +3,23 @@ package pl.omega.model.objects;
 public class IonTechnology extends TechnologyResearch {
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 300;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 100;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1000;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2;
 	}
 
 }

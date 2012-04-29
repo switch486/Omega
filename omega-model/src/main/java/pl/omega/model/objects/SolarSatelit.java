@@ -10,60 +10,42 @@ public class SolarSatelit extends CivilShip {
 //	}
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2000;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 500;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getBaseSpeed() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getCapacity() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getFuelConsumption() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public int getStructurePoints() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getShield() {
+		return 1;
 	}
 
-	public int getShield() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getAttack() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getAttack() {
+		return 1;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	// TODO Adam Puchalski - Apr 10, 2012 - level here means the number of
-	// saletilts......
 }

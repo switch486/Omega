@@ -3,57 +3,42 @@ package pl.omega.model.objects;
 public class Panzer extends WarShip {
 
 	public int getStartCrystalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 40000;
 	}
 
 	public int getStartDeuteriumNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 15000;
 	}
 
 	public int getStartEnergyNeeds() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getStartMetalNeeds() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 30000;
 	}
 
-	public int getStructurePoints() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getShield() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getShield() {
+		return 400;
 	}
 
 	public int getBaseSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 10000;
 	}
 
-	public int getAttack() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getAttack() {
+		return 700;
 	}
 
 	public int getCapacity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 750;
 	}
 
 	public int getFuelConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 250;
 	}
 
 	public double getLevelMultiplayer() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

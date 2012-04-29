@@ -1,7 +1,5 @@
 package pl.omega.model;
 
-import java.util.List;
-
 import pl.omega.model.objects.AllyDeposit;
 import pl.omega.model.objects.BigShield;
 import pl.omega.model.objects.BigTransporter;
@@ -68,6 +66,8 @@ public class Planet {
 	
 	private Building actuallyBeingBuilt;
 	
+	private Moon moon;
+	
 	/*
 	 * the resources as shown on the TOP
 	 */
@@ -76,11 +76,6 @@ public class Planet {
 	private long resDeuterium;
 	private long resEnergy;
 	private long resDarkMatter;
-	
-	private long resMetalMax;
-	private long resCristalMax;
-	private long resDeuteriumMax;
-	private long resEnergyMax;
 	
 	/**
 	 * BUILDINGS
@@ -126,21 +121,22 @@ public class Planet {
 	/*
 	 * Ships
 	 */
-	private List<LightFighter> lightFighters;
-	private List<HeavyFighter> heavyFighters;
-	private List<Cruiser> cruisers;
-	private List<WarHorse> warHorses;
-	private List<Panzer> panzers;
-	private List<Bomber> bombers;
-	private List<Destroyer> destroyers;
-	private List<DeathStar> deathStars;
+	// TODO Adam Puchalski - Apr 29, 2012 - 
+	private LightFighter lightFighters;
+	private HeavyFighter heavyFighters;
+	private Cruiser cruisers;
+	private WarHorse warHorses;
+	private Panzer panzers;
+	private Bomber bombers;
+	private Destroyer destroyers;
+	private DeathStar deathStars;
 	
-	private List<SmallTransporter> smallTransporters;
-	private List<BigTransporter> bigTransporters;
-	private List<Colonizator> colonizators;
-	private List<Recycler> recyclers;
-	private List<SpyingSond> spyingSonds;
-	private List<SolarSatelit> solarSatelites;
+	private SmallTransporter smallTransporters;
+	private BigTransporter bigTransporters;
+	private Colonizator colonizators;
+	private Recycler recyclers;
+	private SpyingSond spyingSonds;
+	private SolarSatelit solarSatelites;
 	
 	
 	public void calculateProduction() {
@@ -307,11 +303,13 @@ public class Planet {
 		this.fusionPowerPlant = fusionPowerPlant;
 	}
 
-	public List<SolarSatelit> getSolarSatelites() {
+	public SolarSatelit getSolarSatelites() {
+		if (solarSatelites == null)
+			solarSatelites = new SolarSatelit();
 		return solarSatelites;
 	}
 
-	public void setSolarSatelites(List<SolarSatelit> solarSatelites) {
+	public void setSolarSatelites(SolarSatelit solarSatelites) {
 		this.solarSatelites = solarSatelites;
 	}
 
@@ -444,6 +442,137 @@ public class Planet {
 	public void setTerraformer(Terraformer terraformer) {
 		this.terraformer = terraformer;
 	}
+
+	public LightFighter getLightFighters() {
+		if (lightFighters == null)
+			lightFighters = new LightFighter();
+		return lightFighters;
+	}
+
+	public void setLightFighters(LightFighter lightFighters) {
+		this.lightFighters = lightFighters;
+	}
+
+	public HeavyFighter getHeavyFighters() {
+		if (heavyFighters == null)
+			heavyFighters = new HeavyFighter();
+		return heavyFighters;
+	}
+
+	public void setHeavyFighters(HeavyFighter heavyFighters) {
+		this.heavyFighters = heavyFighters;
+	}
+
+	public Cruiser getCruisers() {
+		if (cruisers == null)
+			cruisers = new Cruiser();
+		return cruisers;
+	}
+
+	public void setCruisers(Cruiser cruisers) {
+		this.cruisers = cruisers;
+	}
+
+	public WarHorse getWarHorses() {
+		if (warHorses == null)
+			warHorses = new WarHorse();
+		return warHorses;
+	}
+
+	public void setWarHorses(WarHorse warHorses) {
+		this.warHorses = warHorses;
+	}
+
+	public Panzer getPanzers() {
+		if (panzers == null)
+			panzers = new Panzer();
+		return panzers;
+	}
+
+	public void setPanzers(Panzer panzers) {
+		this.panzers = panzers;
+	}
+
+	public Bomber getBombers() {
+		if (bombers == null)
+			bombers = new Bomber();
+		return bombers;
+	}
+
+	public void setBombers(Bomber bombers) {
+		this.bombers = bombers;
+	}
+
+	public Destroyer getDestroyers() {
+		if (destroyers == null)
+			destroyers = new Destroyer();
+		return destroyers;
+	}
+
+	public void setDestroyers(Destroyer destroyers) {
+		this.destroyers = destroyers;
+	}
+
+	public DeathStar getDeathStars() {
+		if (deathStars == null)
+			deathStars = new DeathStar();
+		return deathStars;
+	}
+
+	public void setDeathStars(DeathStar deathStars) {
+		this.deathStars = deathStars;
+	}
+
+	public SmallTransporter getSmallTransporters() {
+		if (smallTransporters == null)
+			smallTransporters = new SmallTransporter();
+		return smallTransporters;
+	}
+
+	public void setSmallTransporters(SmallTransporter smallTransporters) {
+		this.smallTransporters = smallTransporters;
+	}
+
+	public BigTransporter getBigTransporters() {
+		if (bigTransporters == null)
+			bigTransporters = new BigTransporter();
+		return bigTransporters;
+	}
+
+	public void setBigTransporters(BigTransporter bigTransporters) {
+		this.bigTransporters = bigTransporters;
+	}
+
+	public Colonizator getColonizators() {
+		if (colonizators == null)
+			colonizators = new Colonizator();
+		return colonizators;
+	}
+
+	public void setColonizators(Colonizator colonizators) {
+		this.colonizators = colonizators;
+	}
+
+	public Recycler getRecyclers() {
+		if (recyclers == null)
+			recyclers = new Recycler();
+		return recyclers;
+	}
+
+	public void setRecyclers(Recycler recyclers) {
+		this.recyclers = recyclers;
+	}
+
+	public SpyingSond getSpyingSonds() {
+		if (spyingSonds == null)
+			spyingSonds = new SpyingSond();
+		return spyingSonds;
+	}
+
+	public void setSpyingSonds(SpyingSond spyingSonds) {
+		this.spyingSonds = spyingSonds;
+	}
+	
 	
 	// TODO Adam Puchalski - Apr 10, 2012 - ships...
 	// TODO Adam Puchalski - Apr 10, 2012 - defence

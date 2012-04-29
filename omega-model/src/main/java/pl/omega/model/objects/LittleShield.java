@@ -7,12 +7,12 @@ public class LittleShield extends Shield {
 		return 0;
 	}
 
-	public int getShield() {
+	public double getShield() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public int getAttack() {
+	public double getAttack() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
