@@ -14,7 +14,8 @@ public class CommandExecutor {
 		ExecutedCommand result = new ExecutedCommand(c);
 		// TODO logging in here would be nice!
 		webSessionData.getWebDriver().get(c.getURL());
-
+		// TODO Adam Puchalski - Apr 30, 2012 - is it executed in a different thread or what? it appears, like we can get the previous page sometimes...
+		
 		result.setOutputBody(webSessionData.getWebDriver().getPageSource());
 
 		if (isValidWebPage(result.getOutputBody())) {

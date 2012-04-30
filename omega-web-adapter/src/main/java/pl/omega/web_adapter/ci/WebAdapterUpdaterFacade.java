@@ -46,4 +46,6 @@ public interface WebAdapterUpdaterFacade {
 	Kingdom updateResourceSettingsPage(SessionData sessionData, Kingdom kingdom, Planet planet, Strategy strategy);
 	
 	Kingdom updateOmegaPage(SessionData sessionData, Kingdom kingdom, Planet planet, OmegaPage page, Strategy strategy);
+	
+	void startBuildingSomethingSingle (SessionData sessionData, OmegaPage pageToView, Class clazz);
 }

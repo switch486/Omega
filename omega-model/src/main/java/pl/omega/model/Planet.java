@@ -47,7 +47,7 @@ import pl.omega.model.objects.WarHorse;
 public class Planet {
 
 	private String name;
-	private Coordinates coordinates;
+	private SolarSystem coordinates;
 	
 	/*
 	 * info from the general Tab
@@ -163,11 +163,11 @@ public class Planet {
 		this.name = name;
 	}
 
-	public Coordinates getCoordinates() {
+	public SolarSystem getCoordinates() {
 		return coordinates;
 	}
 
-	public void setCoordinates(Coordinates coordinates) {
+	public void setCoordinates(SolarSystem coordinates) {
 		this.coordinates = coordinates;
 	}
 

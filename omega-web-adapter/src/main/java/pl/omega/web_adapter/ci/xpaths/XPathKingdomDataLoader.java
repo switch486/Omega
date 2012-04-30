@@ -25,7 +25,23 @@ public class XPathKingdomDataLoader {
 			return shipyardKingdomUpdater(k, p, root, strategy);
 		if (omegaPage.equals(OmegaPage.DEFENSE))
 			return defenceKingdomUpdater(k, p, root, strategy);
+		if (omegaPage.equals(OmegaPage.FLEET1))
+			return fleet1KingdomUpdater(k, p, root, strategy);
 		throw new RuntimeException("invalid omega page or not implemented yet");
+	}
+
+	private Kingdom fleet1KingdomUpdater(Kingdom k, Planet p, TagNode root,
+			Strategy strategy) {
+		parseDependingOnStrategy(k, p, root, strategy);
+		
+		updateFleet1PageSpecificInformation(p, root);
+		
+		return k;
+	}
+
+	private void updateFleet1PageSpecificInformation(Planet p, TagNode root) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private Kingdom defenceKingdomUpdater(Kingdom k, Planet p, TagNode root,

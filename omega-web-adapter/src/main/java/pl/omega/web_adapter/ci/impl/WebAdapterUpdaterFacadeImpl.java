@@ -33,10 +33,7 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 	}
 
 	public Kingdom loadKingdom(SessionData sessionData, Strategy strategy) {
-		// TODO Marek Puchalski - Apr 7, 2012 - this should be reworked!
-		if (webSessionData != null && webSessionData.getWebDriver() == null) {
-			webSessionData.setWebDriver(new HtmlUnitDriver());
-		}
+		initWebDriver();
 		
 		Kingdom kingdom = updateOverviewPage(sessionData, null, null, strategy);
 		if (strategy == Strategy.ROOT) {
@@ -104,7 +101,9 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 
 	public Kingdom updateFleetPage(SessionData sessionData, Kingdom kingdom,
 			Planet planet, Strategy strategy) {
-		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.FLEET1, strategy);
+		// TODO Adam Puchalski - Apr 30, 2012 - check if this is still relevant - maybe the dock information will be enough?
+//		return updateOmegaPage(sessionData, kingdom, planet, OmegaPage.FLEET1, strategy);
+		return kingdom;
 	}
 
 	public Kingdom updateGalaxyPage(SessionData sessionData, Kingdom kingdom,
@@ -161,8 +160,9 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		updateResearchPage(sessionData, kingdom, planet, strategy);
 		updateShipyardPage(sessionData, kingdom, planet, strategy);
 		updateDefensePage(sessionData, kingdom, planet, strategy);
+		updateFleetPage(sessionData, kingdom, planet, strategy);
 //		// TODO Adam Puchalski - Apr 24, 2012 - uncomment as soon as the implementation will be ready
-//		updateFleetPage(sessionData, kingdom, planet, strategy);
+		// movement?!
 //		updateGalaxyPage(sessionData, kingdom, planet, strategy);
 //		updateAlliancePage(sessionData, kingdom, planet, strategy);
 //		// TODO Adam Puchalski - Apr 24, 2012 - is the one below really needed?
@@ -170,6 +170,21 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 //		updateResourceSettingsPage(sessionData, kingdom, planet, strategy);
 	}
 
+	public void startBuildingSomethingSingle (SessionData sessionData, OmegaPage pageToView, Class clazz) {
+		initWebDriver();
+		Properties properties;
+		properties = new ArgumentsToPropertiesTransformer().transform(pageToView, clazz);
+		webGetOmegaPage(sessionData, pageToView, properties);
+		// TODO Adam Puchalski - Apr 30, 2012 - remodeling to be done here?
+	}
+
+	private void initWebDriver() {
+		// TODO Marek Puchalski - Apr 7, 2012 - this should be reworked!
+		if (webSessionData != null && webSessionData.getWebDriver() == null) {
+			webSessionData.setWebDriver(new HtmlUnitDriver());
+		}
+	}
+	
 	private ExecutedCommand webGetOmegaPage(SessionData sessionData,
 			OmegaPage pageToView, Properties properties) {
 		Command c = new CommandBuilder().getStandardCommand();

@@ -31,6 +31,10 @@ public class App {
 		System.out.println("templow" + loadedKingdom.getHomePlanet().getTemperatureLow());
 		System.out.println("tempMax" + loadedKingdom.getHomePlanet().getTemperatureHigh());
 		
+//		w.startBuildingSomethingSingle(sessionData, OmegaPage.RESOURCES, MetalMine.class);
+//		// TODO Adam Puchalski - Apr 30, 2012 - some token needed??!???!?! wtf
+//		
+//		System.out.println(w);
 	}
 
 }

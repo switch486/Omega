@@ -38,7 +38,8 @@ public class Kingdom {
 
 	private final List<Planet> planets = new ArrayList<Planet>();
 	
-	private final Map<Coordinates, Planet> neighbourMap = new HashMap<Coordinates, Planet>();
+	private final Map<SolarSystem, SolarSystemPlanets> neighbourMap = new HashMap<SolarSystem, SolarSystemPlanets>();
+	private final Map<Player, List<NeighbourPlanet>> playersMap = new HashMap<Player, List<NeighbourPlanet>>();
 	
 	/*
 	 * Research
