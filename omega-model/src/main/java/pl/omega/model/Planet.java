@@ -1,6 +1,7 @@
 package pl.omega.model;
 
 import pl.omega.model.objects.AllyDeposit;
+import pl.omega.model.objects.AntiRocket;
 import pl.omega.model.objects.BigShield;
 import pl.omega.model.objects.BigTransporter;
 import pl.omega.model.objects.Bomber;
@@ -20,6 +21,7 @@ import pl.omega.model.objects.FusionPowerPlant;
 import pl.omega.model.objects.GaussGun;
 import pl.omega.model.objects.HeavyFighter;
 import pl.omega.model.objects.HeavyLaserGun;
+import pl.omega.model.objects.InterPlanetarRocket;
 import pl.omega.model.objects.IonGun;
 import pl.omega.model.objects.LightFighter;
 import pl.omega.model.objects.LightLaserGun;
@@ -117,6 +119,8 @@ public class Planet {
 	private PlasmaGun plasmaGun;
 	private LittleShield littleShield;
 	private BigShield bigShield;
+	private AntiRocket antiRocket;
+	private InterPlanetarRocket interPlanetarRocket;
 	
 	/*
 	 * Ships
@@ -571,6 +575,106 @@ public class Planet {
 
 	public void setSpyingSonds(SpyingSond spyingSonds) {
 		this.spyingSonds = spyingSonds;
+	}
+
+	public RocketThrower getRocketThrower() {
+		if (rocketThrower == null)
+			rocketThrower = new RocketThrower();
+		return rocketThrower;
+	}
+
+	public void setRocketThrower(RocketThrower rocketThrower) {
+		this.rocketThrower = rocketThrower;
+	}
+
+	public LightLaserGun getLightLaserGun() {
+		if (lightLaserGun == null)
+			lightLaserGun = new LightLaserGun();
+		return lightLaserGun;
+	}
+
+	public void setLightLaserGun(LightLaserGun lightLaserGun) {
+		this.lightLaserGun = lightLaserGun;
+	}
+
+	public HeavyLaserGun getHeavyLaserGun() {
+		if (heavyLaserGun == null)
+			heavyLaserGun = new HeavyLaserGun();
+		return heavyLaserGun;
+	}
+
+	public void setHeavyLaserGun(HeavyLaserGun heavyLaserGun) {
+		this.heavyLaserGun = heavyLaserGun;
+	}
+
+	public GaussGun getGaussGun() {
+		if (gaussGun == null)
+			gaussGun = new GaussGun();
+		return gaussGun;
+	}
+
+	public void setGaussGun(GaussGun gaussGun) {
+		this.gaussGun = gaussGun;
+	}
+
+	public IonGun getIonGun() {
+		if (ionGun == null)
+			ionGun = new IonGun();
+		return ionGun;
+	}
+
+	public void setIonGun(IonGun ionGun) {
+		this.ionGun = ionGun;
+	}
+
+	public PlasmaGun getPlasmaGun() {
+		if (plasmaGun == null)
+			plasmaGun = new PlasmaGun();
+		return plasmaGun;
+	}
+
+	public void setPlasmaGun(PlasmaGun plasmaGun) {
+		this.plasmaGun = plasmaGun;
+	}
+
+	public LittleShield getLittleShield() {
+		if (littleShield == null)
+			littleShield = new LittleShield();
+		return littleShield;
+	}
+
+	public void setLittleShield(LittleShield littleShield) {
+		this.littleShield = littleShield;
+	}
+
+	public BigShield getBigShield() {
+		if (bigShield == null)
+			bigShield = new BigShield();
+		return bigShield;
+	}
+
+	public void setBigShield(BigShield bigShield) {
+		this.bigShield = bigShield;
+	}
+
+	public AntiRocket getAntiRocket() {
+		if (antiRocket == null)
+			antiRocket = new AntiRocket();
+		return antiRocket;
+	}
+
+	public void setAntiRocket(AntiRocket antiRocket) {
+		this.antiRocket = antiRocket;
+	}
+
+	public InterPlanetarRocket getInterPlanetarRocket() {
+		if (interPlanetarRocket == null)
+			interPlanetarRocket = new InterPlanetarRocket();
+		return interPlanetarRocket;
+	}
+
+	public void setInterPlanetarRocket(InterPlanetarRocket interPlanetarRocket) {
+		this.interPlanetarRocket = interPlanetarRocket;
 	}
 	
 	

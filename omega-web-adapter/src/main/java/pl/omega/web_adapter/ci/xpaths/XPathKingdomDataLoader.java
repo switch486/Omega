@@ -22,11 +22,57 @@ public class XPathKingdomDataLoader {
 		if (omegaPage.equals(OmegaPage.RESEARCH))
 			return researchKingdomUpdater(k, p, root, strategy);
 		if (omegaPage.equals(OmegaPage.SHIPYARD))
-			return researchShipyardUpdater(k, p, root, strategy);
+			return shipyardKingdomUpdater(k, p, root, strategy);
+		if (omegaPage.equals(OmegaPage.DEFENSE))
+			return defenceKingdomUpdater(k, p, root, strategy);
 		throw new RuntimeException("invalid omega page or not implemented yet");
 	}
 
-	private Kingdom researchShipyardUpdater(Kingdom k, Planet p, TagNode root,
+	private Kingdom defenceKingdomUpdater(Kingdom k, Planet p, TagNode root,
+			Strategy strategy) {
+		parseDependingOnStrategy(k, p, root, strategy);
+
+		updateDefencePageSpecificInformation(p, root);
+
+		return k;
+	}
+
+	private void updateDefencePageSpecificInformation(Planet p, TagNode root) {
+		p.getRocketThrower().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defenceRocketThrowerXPath)));
+		p.getLightLaserGun().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defenceLightLaserGunXPath)));
+		p.getHeavyLaserGun().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defenceHeavyLaserGunXPath)));
+		p.getGaussGun().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defenceGaussGunXPath)));
+		p.getIonGun().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defenceIonGunXPath)));
+		p.getPlasmaGun().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defencePlasmaGunXPath)));
+		
+		p.getLittleShield().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defenceLittleShieldXPath)));
+		p.getBigShield().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defenceBigShieldXPath)));
+		
+		p.getAntiRocket().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defenceAntiRocketXPath)));
+		p.getInterPlanetarRocket().setCount(
+				toStringThirdChild(evaluateXPath(root,
+						DefenceTabXPaths.defenceInterPlanetarRocketXPath)));
+	}
+
+	private Kingdom shipyardKingdomUpdater(Kingdom k, Planet p, TagNode root,
 			Strategy strategy) {
 		parseDependingOnStrategy(k, p, root, strategy);
 		

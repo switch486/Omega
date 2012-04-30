@@ -7,4 +7,16 @@ public abstract class Defence extends ExecutableOmegaObject implements Defending
 	 */
 	protected int count;
 
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public void setCount(String count) {
+		this.count = trimParseToInteger(count);
+	}
+
 }

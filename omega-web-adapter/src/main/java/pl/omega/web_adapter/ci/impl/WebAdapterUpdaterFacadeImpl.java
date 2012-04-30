@@ -160,8 +160,8 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		updateStationPage(sessionData, kingdom, planet, strategy);
 		updateResearchPage(sessionData, kingdom, planet, strategy);
 		updateShipyardPage(sessionData, kingdom, planet, strategy);
+		updateDefensePage(sessionData, kingdom, planet, strategy);
 //		// TODO Adam Puchalski - Apr 24, 2012 - uncomment as soon as the implementation will be ready
-//		updateDefensePage(sessionData, kingdom, planet, strategy);
 //		updateFleetPage(sessionData, kingdom, planet, strategy);
 //		updateGalaxyPage(sessionData, kingdom, planet, strategy);
 //		updateAlliancePage(sessionData, kingdom, planet, strategy);
