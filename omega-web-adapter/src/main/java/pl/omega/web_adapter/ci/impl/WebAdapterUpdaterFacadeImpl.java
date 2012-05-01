@@ -1,6 +1,5 @@
 package pl.omega.web_adapter.ci.impl;
 
-import org.htmlcleaner.TagNode;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import pl.omega.model.Kingdom;
@@ -63,10 +62,9 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		ExecutedCommand result = webGetOmegaPage(sessionData, page,
 				new Properties());
 		if (kingdom == null) {
-			return initAllData(result.getRoot(), result.getOutputBody(),
-					page, strategy);
+			return initAllData(result, page, strategy);
 		}
-		return updateAllData(kingdom, planet, result.getRoot(), result.getOutputBody(), page, strategy);
+		return updateAllData(kingdom, planet, result, page, strategy);
 	}
 
 	public Kingdom updateResourcesPage(SessionData sessionData,
@@ -143,15 +141,14 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		return new CommandExecutor().executeCommand(webSessionData, c);
 	}
 
-	private Kingdom initAllData(TagNode root, String pageBody,
-			OmegaPage omegaPage, Strategy strategy) {
+	private Kingdom initAllData(ExecutedCommand command, OmegaPage page, Strategy strategy) {
 		Kingdom k = new Kingdom();
-		return updateAllData(k, null, root, pageBody, omegaPage, strategy);
+		return updateAllData(k, null, command, page, strategy);
 	}
 
-	private Kingdom updateAllData(Kingdom k, Planet p, TagNode root, String pageBody,
+	private Kingdom updateAllData(Kingdom k, Planet p, ExecutedCommand command,
 			OmegaPage omegaPage, Strategy strategy) {
-		return new XPathKingdomDataLoader().updateKingdomInfo(k, p, root, pageBody,
+		return new XPathKingdomDataLoader().updateKingdomInfo(k, p, command,
 				omegaPage, strategy);
 	}
 
@@ -171,9 +168,9 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 //		updateResourceSettingsPage(sessionData, kingdom, planet, strategy);
 	}
 
-	public void startBuildingSomethingSingle (SessionData sessionData, OmegaPage pageToView, ExecutableOmegaObject object) {
+	public void startBuildingSomethingSingle (SessionData sessionData, OmegaPage pageToView, ExecutableOmegaObject object, String token) {
 		initWebDriver();
-		Properties properties = new ArgumentsToPropertiesTransformer().transform(object);
+		Properties properties = new ArgumentsToPropertiesTransformer().transform(object, token);
 		webGetOmegaPage(sessionData, pageToView, properties);
 		// TODO Adam Puchalski - Apr 30, 2012 - remodeling to be done here?
 	}
@@ -190,6 +187,13 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 		Command c = new CommandBuilder().getStandardCommand();
 		c.setArguments(sessionData, pageToView, properties);
 		ExecutedCommand result = executeCommand(c, true);
+		return result;
+	}
+
+	public ExecutedCommand loadWebPage(SessionData sessionData,
+			OmegaPage pageToView) {
+		final ExecutedCommand result = webGetOmegaPage(sessionData, pageToView, new Properties());
+		new XPathKingdomDataLoader().updateToken(result);
 		return result;
 	}
 

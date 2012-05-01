@@ -10,6 +10,7 @@ import pl.omega.web_adapter.util.Command;
 
 public class ExecutedCommand {
 
+	private String token;
 	Command inputCommand;
 	String outputBody;
 	List<Exception> exceptionsOccured;
@@ -64,6 +65,14 @@ public class ExecutedCommand {
 	
 	public TagNode getRoot() {
 		return node;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 	
 }

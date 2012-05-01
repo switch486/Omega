@@ -5,14 +5,19 @@ import pl.omega.model.objects.ExecutableOmegaObject;
 
 public class ArgumentsToPropertiesTransformer {
 
-	public Properties transform(ExecutableOmegaObject object) {
+	public Properties transform(ExecutableOmegaObject object, String token) {
 		Properties p = createStandardProperties();
-		resourcesMapClassToProperty(p, object);
+		mapClassToProperty(p, object);
+		mapTokenToProperty(p, token);
 		return p;
 	}
 
-	private void resourcesMapClassToProperty(Properties p, ExecutableOmegaObject object) {
-			p.put("type", ""+object.referenceID);
+	private void mapTokenToProperty(Properties p, String token) {
+		p.put("token", token);
+	}
+
+	private void mapClassToProperty(Properties p, ExecutableOmegaObject object) {
+		p.put("type", "" + object.referenceID);
 	}
 
 	private Properties createStandardProperties() {

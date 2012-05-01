@@ -5,7 +5,10 @@ import org.apache.log4j.Logger;
 import pl.omega.common.util.LoggerFactory;
 import pl.omega.common.util.OmegaRegistry;
 import pl.omega.model.Kingdom;
+import pl.omega.model.OmegaPage;
 import pl.omega.model.SessionData;
+import pl.omega.model.objects.MetalMine;
+import pl.omega.web_adapter.ci.commands.ExecutedCommand;
 import pl.omega.web_adapter.ci.impl.WebAdapterUpdaterFacadeImpl;
 
 public class App {
@@ -31,10 +34,12 @@ public class App {
 		System.out.println("templow" + loadedKingdom.getHomePlanet().getTemperatureLow());
 		System.out.println("tempMax" + loadedKingdom.getHomePlanet().getTemperatureHigh());
 		
-//		w.startBuildingSomethingSingle(sessionData, OmegaPage.RESOURCES, new MetalMine());
-//		// TODO Adam Puchalski - Apr 30, 2012 - some token needed??!???!?! wtf
-//		
-//		System.out.println(w);
+		
+		ExecutedCommand executedCommand = w.loadWebPage(sessionData, OmegaPage.RESOURCES);
+		
+		w.startBuildingSomethingSingle(sessionData, OmegaPage.RESOURCES, new MetalMine(), executedCommand.getToken());
+		
+		System.out.println(w);
 	}
 
 }

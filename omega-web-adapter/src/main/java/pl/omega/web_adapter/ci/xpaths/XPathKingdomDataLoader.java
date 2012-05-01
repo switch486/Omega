@@ -8,33 +8,32 @@ import pl.omega.model.Kingdom;
 import pl.omega.model.OmegaPage;
 import pl.omega.model.Planet;
 import pl.omega.web_adapter.ci.Strategy;
+import pl.omega.web_adapter.ci.commands.ExecutedCommand;
 
 public class XPathKingdomDataLoader {
 
-	public Kingdom updateKingdomInfo(Kingdom k, Planet p, TagNode root,
-			String pageBody, OmegaPage omegaPage, Strategy strategy) {
+	public Kingdom updateKingdomInfo(Kingdom k, Planet p, ExecutedCommand command, OmegaPage omegaPage, Strategy strategy) {
 		if (omegaPage.equals(OmegaPage.OVERVIEW))
-			return overviewKingdomUpdater(k, p, root, pageBody);
+			return overviewKingdomUpdater(k, p, command);
 		if (omegaPage.equals(OmegaPage.RESOURCES))
-			return resourcesKingdomUpdater(k, p, root, strategy);
+			return resourcesKingdomUpdater(k, p, command, strategy);
 		if (omegaPage.equals(OmegaPage.STATION))
-			return stationKingdomUpdater(k, p, root, strategy);
+			return stationKingdomUpdater(k, p, command, strategy);
 		if (omegaPage.equals(OmegaPage.RESEARCH))
-			return researchKingdomUpdater(k, p, root, strategy);
+			return researchKingdomUpdater(k, p, command, strategy);
 		if (omegaPage.equals(OmegaPage.SHIPYARD))
-			return shipyardKingdomUpdater(k, p, root, strategy);
+			return shipyardKingdomUpdater(k, p, command, strategy);
 		if (omegaPage.equals(OmegaPage.DEFENSE))
-			return defenceKingdomUpdater(k, p, root, strategy);
+			return defenceKingdomUpdater(k, p, command, strategy);
 		if (omegaPage.equals(OmegaPage.FLEET1))
-			return fleet1KingdomUpdater(k, p, root, strategy);
+			return fleet1KingdomUpdater(k, p, command, strategy);
 		throw new RuntimeException("invalid omega page or not implemented yet");
 	}
 
-	private Kingdom fleet1KingdomUpdater(Kingdom k, Planet p, TagNode root,
-			Strategy strategy) {
-		parseDependingOnStrategy(k, p, root, strategy);
+	private Kingdom fleet1KingdomUpdater(Kingdom k, Planet p, ExecutedCommand command, Strategy strategy) {
+		parseMustHavsAndRestButOnlyDependingOnStrategy(k, p, command, strategy);
 		
-		updateFleet1PageSpecificInformation(p, root);
+		updateFleet1PageSpecificInformation(p, command.getRoot());
 		
 		return k;
 	}
@@ -44,11 +43,10 @@ public class XPathKingdomDataLoader {
 		
 	}
 
-	private Kingdom defenceKingdomUpdater(Kingdom k, Planet p, TagNode root,
-			Strategy strategy) {
-		parseDependingOnStrategy(k, p, root, strategy);
+	private Kingdom defenceKingdomUpdater(Kingdom k, Planet p, ExecutedCommand command, Strategy strategy) {
+		parseMustHavsAndRestButOnlyDependingOnStrategy(k, p, command, strategy);
 
-		updateDefencePageSpecificInformation(p, root);
+		updateDefencePageSpecificInformation(p, command.getRoot());
 
 		return k;
 	}
@@ -88,11 +86,10 @@ public class XPathKingdomDataLoader {
 						DefenceTabXPaths.defenceInterPlanetarRocketXPath)));
 	}
 
-	private Kingdom shipyardKingdomUpdater(Kingdom k, Planet p, TagNode root,
-			Strategy strategy) {
-		parseDependingOnStrategy(k, p, root, strategy);
+	private Kingdom shipyardKingdomUpdater(Kingdom k, Planet p, ExecutedCommand command, Strategy strategy) {
+		parseMustHavsAndRestButOnlyDependingOnStrategy(k, p, command, strategy);
 		
-		updateShipyardPageSpecificInformation(p, root);
+		updateShipyardPageSpecificInformation(p, command.getRoot());
 		
 		return k;
 	}
@@ -143,11 +140,10 @@ public class XPathKingdomDataLoader {
 						ShipyardTabXPaths.shipyardSolarSatelitXPath)));
 	}
 
-	private Kingdom researchKingdomUpdater(Kingdom k, Planet p, TagNode root,
-			Strategy strategy) {
-		parseDependingOnStrategy(k, p, root, strategy);
+	private Kingdom researchKingdomUpdater(Kingdom k, Planet p, ExecutedCommand command, Strategy strategy) {
+		parseMustHavsAndRestButOnlyDependingOnStrategy(k, p, command, strategy);
 
-		updateResearchPageSpecificInformation(k, root);
+		updateResearchPageSpecificInformation(k, command.getRoot());
 
 		return k;
 	}
@@ -208,11 +204,10 @@ public class XPathKingdomDataLoader {
 						ResearchTabXPaths.researchArmourTechnologyXPath)));
 	}
 
-	private Kingdom stationKingdomUpdater(Kingdom k, Planet p, TagNode root,
-			Strategy strategy) {
-		parseDependingOnStrategy(k, p, root, strategy);
+	private Kingdom stationKingdomUpdater(Kingdom k, Planet p, ExecutedCommand command, Strategy strategy) {
+		parseMustHavsAndRestButOnlyDependingOnStrategy(k, p, command, strategy);
 
-		updateStationPageSpecificInformation(p, root);
+		updateStationPageSpecificInformation(p, command.getRoot());
 
 		return k;
 	}
@@ -241,11 +236,10 @@ public class XPathKingdomDataLoader {
 						StationTabXPaths.stationTerraformerXPath)));
 	}
 
-	private Kingdom resourcesKingdomUpdater(Kingdom k, Planet p, TagNode root,
-			Strategy strategy) {
-		parseDependingOnStrategy(k, p, root, strategy);
+	private Kingdom resourcesKingdomUpdater(Kingdom k, Planet p, ExecutedCommand command, Strategy strategy) {
+		parseMustHavsAndRestButOnlyDependingOnStrategy(k, p, command, strategy);
 
-		updateResourcesPageSpecificInformation(p, root);
+		updateResourcesPageSpecificInformation(p, command.getRoot());
 		return k;
 	}
 
@@ -286,18 +280,34 @@ public class XPathKingdomDataLoader {
 						ResourcesTabXPaths.resourceDeuteriumHideoutXPath)));
 	}
 
-	private void parseDependingOnStrategy(Kingdom k, Planet p, TagNode root,
+	private void parseMustHavsAndRestButOnlyDependingOnStrategy(Kingdom k, Planet p, ExecutedCommand command,
 			Strategy strategy) {
+		
+		parseToken(command);
+		
 		if (strategy == Strategy.SINGLE_PAGE) {
-			parseEagerly(k, p, root);
+			parseEagerly(k, p, command.getRoot());
 		}
 	}
 
-	private Kingdom overviewKingdomUpdater(Kingdom k, Planet p, TagNode root,
-			String pageBody) {
-		parseEagerly(k, p, root);
+	private void parseToken(ExecutedCommand command) {
+		String finnal = null;
+		String tokenStart = "&amp;token="; // a replacement for the "&token="
+		int start = command.getOutputBody().indexOf(tokenStart);
+		if (start<=0) {
+			command.setToken(finnal);
+			return;
+		}
+		String base = command.getOutputBody().substring(start, start+50);
+		base = base.replace(tokenStart, "");
+		finnal = base.substring(0, base.indexOf("'"));
+		command.setToken(finnal);
+	}
 
-		updateOverviewPageSpecificInformation(k, pageBody);
+	private Kingdom overviewKingdomUpdater(Kingdom k, Planet p, ExecutedCommand command) {
+		parseEagerly(k, p, command.getRoot());
+
+		updateOverviewPageSpecificInformation(k, command.getOutputBody());
 
 		return k;
 	}
@@ -496,6 +506,10 @@ public class XPathKingdomDataLoader {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public void updateToken(ExecutedCommand result) {
+		parseToken(result);
 	}
 
 }

@@ -296,7 +296,6 @@ public class Kingdom {
 		this.armourTechnology = armourTechnology;
 	}
 	
-	
 	// TODO Adam Puchalski - Apr 10, 2012 - how to solve problem with earlier galaxy findings - farms, and so one
 	// TODO Adam Puchalski - Apr 17, 2012 - a generic ToString would be helpfull here
 }
