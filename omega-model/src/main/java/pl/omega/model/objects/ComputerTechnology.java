@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class ComputerTechnology extends AdvancedResearch {
+	
+	public ComputerTechnology() {
+		super(108);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 400;

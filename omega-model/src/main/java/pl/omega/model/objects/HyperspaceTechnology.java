@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class HyperspaceTechnology extends TechnologyResearch {
+	
+	public HyperspaceTechnology() {
+		super(114);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 4000;

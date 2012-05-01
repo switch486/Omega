@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class NanitFactory extends StationBulding {
+	
+	public NanitFactory() {
+		super(15);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 500000;

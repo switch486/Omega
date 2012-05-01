@@ -2,6 +2,11 @@ package pl.omega.model.objects;
 
 public class SolarSatelit extends CivilShip {
 	
+	public SolarSatelit() {
+		// from the resources page -- happens ot be the same on the Shipyard page
+		super(212);
+	}
+	
 //	private final int temperatureHigh;
 
 //	@Override

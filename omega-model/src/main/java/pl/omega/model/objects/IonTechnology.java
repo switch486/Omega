@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class IonTechnology extends TechnologyResearch {
+	
+	public IonTechnology() {
+		super(121);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 300;

@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class RocketSilo extends StationBulding {
+	
+	public RocketSilo() {
+		super(44);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 20000;

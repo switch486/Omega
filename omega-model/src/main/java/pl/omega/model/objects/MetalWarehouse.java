@@ -1,6 +1,11 @@
 package pl.omega.model.objects;
 
 public class MetalWarehouse extends Warehouse {
+	
+	public MetalWarehouse() {
+		super(22);
+	}
+	
 	//Magazyn metalu (2) - 1 000 : 0 : 0
 
 	public int getStartCrystalNeeds() {

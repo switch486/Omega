@@ -2,6 +2,10 @@ package pl.omega.model.objects;
 
 public class LightFighter extends WarShip {
 	
+	public LightFighter() {
+		super(204);
+	}
+	
 	// TODO Adam Puchalski - Apr 29, 2012 - in case the starting costs or parameters vary on different unis, then other Omega pages also need to be parsed (technology tree)
 
 	public int getStartCrystalNeeds() {

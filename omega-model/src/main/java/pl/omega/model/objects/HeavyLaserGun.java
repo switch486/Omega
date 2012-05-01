@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class HeavyLaserGun extends Gun {
+	
+	public HeavyLaserGun() {
+		super(403);
+	}
 
 	public int getStructurePoints() {
 		// TODO Auto-generated method stub

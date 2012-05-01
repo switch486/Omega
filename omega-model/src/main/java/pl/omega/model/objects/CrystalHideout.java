@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class CrystalHideout extends Hideout{
+	
+	public CrystalHideout() {
+		super(26);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 1322;

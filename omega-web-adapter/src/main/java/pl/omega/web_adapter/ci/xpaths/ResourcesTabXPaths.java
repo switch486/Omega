@@ -1,23 +1,38 @@
 package pl.omega.web_adapter.ci.xpaths;
 
-public class ResourcesTabXPaths extends AbstractXPaths {
+import pl.omega.model.objects.CrystalHideout;
+import pl.omega.model.objects.CrystalMine;
+import pl.omega.model.objects.CrystalWarehouse;
+import pl.omega.model.objects.DeuteriumHideout;
+import pl.omega.model.objects.DeuteriumMine;
+import pl.omega.model.objects.DeuteriumWarehouse;
+import pl.omega.model.objects.FusionPowerPlant;
+import pl.omega.model.objects.MetalHideout;
+import pl.omega.model.objects.MetalMine;
+import pl.omega.model.objects.MetalWarehouse;
+import pl.omega.model.objects.SolarPowerPlant;
+import pl.omega.model.objects.SolarSatelit;
 
-	public static final String resourceMetalXPath = getResourceXPathWith("supply1");
-	public static final String resourceCrystalXPath = getResourceXPathWith("supply2");
-	public static final String resourceDeuteriumXPath = getResourceXPathWith("supply3");
-	public static final String resourceSolarPowerPlantXPath = getResourceXPathWith("supply4");
-	public static final String resourceFusionPowerPlantXPath = getResourceXPathWith("supply12");
-	public static final String resourceSolarSatelitXPath = getResourceXPathWith("supply212");
+public class ResourcesTabXPaths extends AbstractXPaths {
 	
-	public static final String resourceMetalWarehouseXPath = getResourceXPathWith("supply22");
-	public static final String resourceCrystalWarehouseXPath = getResourceXPathWith("supply23");
-	public static final String resourceDeuteriumWarehouseXPath = getResourceXPathWith("supply24");
+	private static final String resourcesPageKeyword = "supply";
+
+	public static final String resourceMetalXPath              = getResourceXPathWith(new MetalMine().referenceID);
+	public static final String resourceCrystalXPath            = getResourceXPathWith(new CrystalMine().referenceID);
+	public static final String resourceDeuteriumXPath          = getResourceXPathWith(new DeuteriumMine().referenceID);
+	public static final String resourceSolarPowerPlantXPath    = getResourceXPathWith(new SolarPowerPlant().referenceID);
+	public static final String resourceFusionPowerPlantXPath   = getResourceXPathWith(new FusionPowerPlant().referenceID);
+	public static final String resourceSolarSatelitXPath       = getResourceXPathWith(new SolarSatelit().referenceID);
 	
-	public static final String resourceMetalHideoutXPath = getResourceXPathWith("supply25");
-	public static final String resourceCrystalHideoutXPath = getResourceXPathWith("supply26");
-	public static final String resourceDeuteriumHideoutXPath = getResourceXPathWith("supply27");
+	public static final String resourceMetalWarehouseXPath     = getResourceXPathWith(new MetalWarehouse().referenceID);
+	public static final String resourceCrystalWarehouseXPath   = getResourceXPathWith(new CrystalWarehouse().referenceID);
+	public static final String resourceDeuteriumWarehouseXPath = getResourceXPathWith(new DeuteriumWarehouse().referenceID);
 	
-	private static String getResourceXPathWith(String part) {
-		return "//div[@class='"+part+"']/div/a/span[@class='ecke']/span";
+	public static final String resourceMetalHideoutXPath       = getResourceXPathWith(new MetalHideout().referenceID);
+	public static final String resourceCrystalHideoutXPath     = getResourceXPathWith(new CrystalHideout().referenceID);
+	public static final String resourceDeuteriumHideoutXPath   = getResourceXPathWith(new DeuteriumHideout().referenceID);
+	
+	private static String getResourceXPathWith(int referenceID) {
+		return getStandardXPathWith(resourcesPageKeyword + referenceID);
 	}
 }

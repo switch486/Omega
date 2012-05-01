@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class Colonizator extends CivilShip {
+	
+	public Colonizator() {
+		super(208);
+	}
 
 	public double getShield() {
 		return 100;

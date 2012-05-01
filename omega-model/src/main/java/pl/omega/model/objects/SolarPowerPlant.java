@@ -1,6 +1,11 @@
 package pl.omega.model.objects;
 
 public class SolarPowerPlant extends PowerPlant {
+	
+	public SolarPowerPlant() {
+		super(4);
+	}
+	
 	//Elektrownia słoneczna (1,5) - 75 : 30 : 0
 
 

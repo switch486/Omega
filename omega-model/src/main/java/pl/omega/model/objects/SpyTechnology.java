@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class SpyTechnology extends AdvancedResearch {
+	
+	public SpyTechnology() {
+		super(106);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 1000;

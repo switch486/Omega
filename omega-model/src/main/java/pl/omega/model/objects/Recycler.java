@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class Recycler extends CivilShip {
+	
+	public Recycler() {
+		super(209);
+	}
 
 	public double getShield() {
 		return 10;

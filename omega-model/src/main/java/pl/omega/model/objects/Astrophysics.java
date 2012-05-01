@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class Astrophysics extends AdvancedResearch {
+	
+	public Astrophysics() {
+		super(124);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 8000;

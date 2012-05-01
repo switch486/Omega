@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class ImpulseEngine extends EngineResearch {
+	
+	public ImpulseEngine() {
+		super(117);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 4000;

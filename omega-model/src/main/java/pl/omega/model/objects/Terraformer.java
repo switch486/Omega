@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class Terraformer extends StationBulding {
+	
+	public Terraformer() {
+		super(33);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 50000;

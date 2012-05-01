@@ -1,6 +1,11 @@
 package pl.omega.model.objects;
 
 public class FusionPowerPlant extends PowerPlant {
+	
+	public FusionPowerPlant() {
+		super(12);
+	}
+	
 	//Elektrownia fuzyjna (1,8) - 900 : 360 : 180
 
 //	private final int energeticResearchLevel;

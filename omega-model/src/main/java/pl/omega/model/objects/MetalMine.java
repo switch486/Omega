@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class MetalMine extends Mine {
+	
+	public MetalMine() {
+		super(1);
+	}
 	// Kopalnia metalu (1,5) - 60 : 15 : 0
 	
 	// TODO Adam Puchalski - Apr 24, 2012 - maybe there is a better place for this... parsing this will cause tonns of problems

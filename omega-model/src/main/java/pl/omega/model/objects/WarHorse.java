@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class WarHorse extends WarShip {
+	
+	public WarHorse() {
+		super(207);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 15000;

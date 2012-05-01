@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class AllyDeposit extends StationBulding {
+	
+	public AllyDeposit() {
+		super(34);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 40000;

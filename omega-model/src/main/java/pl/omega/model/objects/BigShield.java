@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class BigShield extends Shield {
+	
+	public BigShield() {
+		super(408);
+	}
 
 	public int getStructurePoints() {
 		// TODO Auto-generated method stub

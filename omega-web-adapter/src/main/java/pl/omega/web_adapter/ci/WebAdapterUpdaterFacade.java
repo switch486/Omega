@@ -4,6 +4,7 @@ import pl.omega.model.Kingdom;
 import pl.omega.model.OmegaPage;
 import pl.omega.model.Planet;
 import pl.omega.model.SessionData;
+import pl.omega.model.objects.ExecutableOmegaObject;
 
 /**
  * This class holds all operations used to fetch information from the 0game web
@@ -47,5 +48,5 @@ public interface WebAdapterUpdaterFacade {
 	
 	Kingdom updateOmegaPage(SessionData sessionData, Kingdom kingdom, Planet planet, OmegaPage page, Strategy strategy);
 	
-	void startBuildingSomethingSingle (SessionData sessionData, OmegaPage pageToView, Class clazz);
+	void startBuildingSomethingSingle (SessionData sessionData, OmegaPage pageToView, ExecutableOmegaObject object);
 }

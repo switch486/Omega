@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class SteamEngine extends EngineResearch {
+	
+	public SteamEngine() {
+		super(115);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 400;

@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class PlasmaGun extends Gun {
+	
+	public PlasmaGun() {
+		super(406);
+	}
 
 	public int getStructurePoints() {
 		// TODO Auto-generated method stub

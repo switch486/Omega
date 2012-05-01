@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class DeuteriumHideout extends Hideout {
+	
+	public DeuteriumHideout() {
+		super(27);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 2645;

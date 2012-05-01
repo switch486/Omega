@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class AntiRocket extends Rocket {
+	
+	public AntiRocket() {
+		super(502);
+	}
 
 	public int getStructurePoints() {
 		// TODO Auto-generated method stub

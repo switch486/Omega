@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public abstract class Building extends ExecutableOmegaObject {
+	
+	public Building(int referenceID) {
+		super(referenceID);
+	}
 
 	private int level;
 	

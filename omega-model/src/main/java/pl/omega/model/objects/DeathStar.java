@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class DeathStar extends WarShip {
+	
+	public DeathStar() {
+		super(214);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 4000000;

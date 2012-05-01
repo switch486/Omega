@@ -1,6 +1,11 @@
 package pl.omega.model.objects;
 
 public class CrystalMine extends Mine {
+	
+	public CrystalMine() {
+		super(2);
+	}
+	
 	//Kopalnia kryształu (1,6) - 48 : 24 : 0
 
 	public int getStartCrystalNeeds() {

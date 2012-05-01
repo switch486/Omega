@@ -4,6 +4,10 @@ import java.util.List;
 
 public abstract class Ship extends ExecutableOmegaObject implements Flying {
 
+	public Ship(int referenceID) {
+		super(referenceID);
+	}
+	
 	// TODO Adam Puchalski - Apr 15, 2012 - the level multiplier is not valid here
 
 	/**

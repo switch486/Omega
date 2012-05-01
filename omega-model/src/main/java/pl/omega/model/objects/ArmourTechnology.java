@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class ArmourTechnology extends WarResearch {
+	
+	public ArmourTechnology() {
+		super(111);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 0;

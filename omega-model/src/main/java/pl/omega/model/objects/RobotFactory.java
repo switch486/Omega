@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class RobotFactory extends StationBulding {
+	
+	public RobotFactory() {
+		super(14);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 120;

@@ -8,6 +8,7 @@ import pl.omega.model.OmegaPage;
 import pl.omega.model.Planet;
 import pl.omega.model.Properties;
 import pl.omega.model.SessionData;
+import pl.omega.model.objects.ExecutableOmegaObject;
 import pl.omega.web_adapter.ci.Strategy;
 import pl.omega.web_adapter.ci.WebAdapterUpdaterFacade;
 import pl.omega.web_adapter.ci.commands.ExecutedCommand;
@@ -170,10 +171,9 @@ public class WebAdapterUpdaterFacadeImpl implements WebAdapterUpdaterFacade {
 //		updateResourceSettingsPage(sessionData, kingdom, planet, strategy);
 	}
 
-	public void startBuildingSomethingSingle (SessionData sessionData, OmegaPage pageToView, Class clazz) {
+	public void startBuildingSomethingSingle (SessionData sessionData, OmegaPage pageToView, ExecutableOmegaObject object) {
 		initWebDriver();
-		Properties properties;
-		properties = new ArgumentsToPropertiesTransformer().transform(pageToView, clazz);
+		Properties properties = new ArgumentsToPropertiesTransformer().transform(object);
 		webGetOmegaPage(sessionData, pageToView, properties);
 		// TODO Adam Puchalski - Apr 30, 2012 - remodeling to be done here?
 	}

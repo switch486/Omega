@@ -28,5 +28,9 @@ public abstract class AbstractXPaths {
 	public static final String planetsAttributeHrefKey = "href";
 	public static final String planetsAttributeClassKey = "class";
 	public static final String planetsBuildingAtTheMomentValue = "constructionIcon tipsStandard";
+	
+	protected static String getStandardXPathWith(String part) {
+		return "//div[@class='" + part + "']/div/a/span[@class='ecke']/span";
+	}
 
 }

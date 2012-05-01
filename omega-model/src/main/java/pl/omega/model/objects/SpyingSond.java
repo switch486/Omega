@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class SpyingSond extends CivilShip {
+	
+	public SpyingSond() {
+		super(210);
+	}
 
 	public double getShield() {
 		return 0.01;

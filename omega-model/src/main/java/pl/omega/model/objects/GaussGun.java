@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class GaussGun extends Gun {
+	
+	public GaussGun() {
+		super(404);
+	}
 
 	public int getStructurePoints() {
 		// TODO Auto-generated method stub

@@ -1,6 +1,11 @@
 package pl.omega.model.objects;
 
 public class DeuteriumMine extends Mine {
+	
+	public DeuteriumMine() {
+		super(3);
+	}
+	
 	//Ekstraktor deuteru (1,5) - 225 : 75 : 0
 	
 //	private final int temperatureHigh;

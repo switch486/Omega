@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class GravitonTechnology extends AdvancedResearch {
+	
+	public GravitonTechnology() {
+		super(199);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 0;

@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class SmallTransporter extends CivilShip {
+	
+	public SmallTransporter() {
+		super(202);
+	}
 
 	public double getShield() {
 		return 10;

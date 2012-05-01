@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class IntergalacticResearchNetwork extends AdvancedResearch {
+	
+	public IntergalacticResearchNetwork() {
+		super(123);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 400000;

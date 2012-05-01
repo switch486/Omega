@@ -1,6 +1,11 @@
 package pl.omega.model.objects;
 
 public class DeuteriumWarehouse extends Warehouse {
+	
+	public DeuteriumWarehouse() {
+		super(24);
+	}
+	
 	//Zbiornik deuteru (2) - 1 000 : 1 000 : 0
 
 	public int getStartCrystalNeeds() {

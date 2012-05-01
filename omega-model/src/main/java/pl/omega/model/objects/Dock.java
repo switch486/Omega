@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class Dock extends StationBulding {
+	
+	public Dock() {
+		super(21);
+	}
 
 	public int getStartCrystalNeeds() {
 		return 200;

@@ -1,6 +1,10 @@
 package pl.omega.model.objects;
 
 public class InterPlanetarRocket extends Rocket {
+	
+	public InterPlanetarRocket() {
+		super(503);
+	}
 
 	public int getStructurePoints() {
 		// TODO Auto-generated method stub

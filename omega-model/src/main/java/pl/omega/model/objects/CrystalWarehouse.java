@@ -1,6 +1,11 @@
 package pl.omega.model.objects;
 
 public class CrystalWarehouse extends Warehouse {
+	
+	public CrystalWarehouse() {
+		super(23);
+	}
+	
 	//Magazyn kryształu (2) - 1 000 : 500 : 0
 
 	public int getStartCrystalNeeds() {
